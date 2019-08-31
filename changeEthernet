@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# This script will accept an argument to determine whether it should change the network config to static or dynamic
+
+netType="$1"
+
+if [ $netType == "static" ]
+then
+	echo "Changing to static network configuration"
+	sudo cp /home/hamish/bin/scripts/netScripts/static.yaml /etc/netplan/01-netcfg.yaml
+elif [ $netType == "dynamic" ]
+then
+	echo "Changing to dynamic network configuration"
+	sudo cp /home/hamish/bin/scripts/netScripts/dynamic.yaml /etc/netplan/01-netcfg.yaml
+else
+	echo "unrecognised argument"
+fi
+
+# Apply the network config
+sudo netplan apply
