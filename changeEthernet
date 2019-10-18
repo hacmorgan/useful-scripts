@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # This script will accept an argument to determine whether it should change the network config to static or dynamic
+# N.B. THIS IS ONLY FOR NETPLAN, NOT NETWORKMANAGER - USE NMCLI FOR NETWORKMANAGER
 
 netType="$1"
 
