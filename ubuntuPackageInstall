@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Script for installing all of the useful applications that are necessary in a
+# fresh ubuntu install (N.B. USES APT)
+# Also sets up github
+
+# Application install
+sudo apt install fish vim git terminator python3-pip 
+
+# Configure git
+git config --global user.email "ham430@gmail.com"
+git config --global user.name "hacmorgan"
