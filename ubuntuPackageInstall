@@ -5,7 +5,10 @@
 # Also sets up github
 
 # Application install
-sudo apt install fish vim git terminator python3-pip 
+sudo apt install fish i3 vim git terminator python3-pip 
+
+# Set fish as default shell
+chsh -s `which fish`
 
 # Configure git
 git config --global user.email "ham430@gmail.com"
