@@ -5,7 +5,7 @@
 # Also sets up github
 
 # Application install
-sudo apt install fish i3 vim git terminator python3-pip 
+sudo apt install fish i3 vim git terminator python3-pip htop
 
 # Set fish as default shell
 chsh -s `which fish`
