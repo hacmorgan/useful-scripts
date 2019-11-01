@@ -1,0 +1,17 @@
+#/bin/zsh
+
+# Script for auto installing most of the useful stuff in a new system, then setting up git
+# Make sure to run sudo pacman -Syyu beforehand
+
+# Install packages
+sudo pacman -S --noconfirm fish vim htop glances gimp
+sudo pacman -S --noconfirm i3-gaps xorg-server xorg-xinit dmenu i3-status
+
+# Config git
+git config --global user.email "ham430@gmail.com"
+git config --global user.name "hacmorgan"
+
+# Config vim
+echo set number >> ~/.vimrc
+echo filetype plugin indent on >> ~/.vimrc
+echo set shiftwidth=4 >> ~/.vimrc
