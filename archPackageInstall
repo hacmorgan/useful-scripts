@@ -5,7 +5,7 @@
 
 # Install packages
 sudo pacman -S --noconfirm fish vim htop glances gimp
-sudo pacman -S --noconfirm i3-gaps xorg-server xorg-xinit dmenu i3-status
+sudo pacman -S --noconfirm i3-gaps xorg-server xorg-xinit dmenu i3status
 
 # Config git
 git config --global user.email "ham430@gmail.com"
