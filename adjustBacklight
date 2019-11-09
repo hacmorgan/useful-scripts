@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# First argument is whether to increase or decrease brightness
+upOrDown=$1
+
+# Find current brightness
+currBrightness="$(xfpm-power-backlight-helper --get-brightness)"
+
+if [ $upOrDown = "up" ]; then
+	newBrightness="$(echo $currBrightness + 5000 | bc)"
+elif [ $upOrDown = "down" ]; then
+	newBrightness="$(echo $currBrightness - 5000 | bc)"
+else
+	exit 1
+fi
+
+# Send a system notification for brightness
+notify-send -t 800 "Display backlight set to ${newBrightness}"
+
+# Set brightness
+pkexec xfpm-power-backlight-helper --set-brightness $newBrightness

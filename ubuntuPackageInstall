@@ -5,7 +5,7 @@
 # Also sets up github
 
 # Application install
-sudo apt install fish i3 vim git terminator python3-pip htop
+sudo apt install fish vim git terminator python3-pip htop
 
 # Set fish as default shell
 chsh -s `which fish`
@@ -13,3 +13,8 @@ chsh -s `which fish`
 # Configure git
 git config --global user.email "ham430@gmail.com"
 git config --global user.name "hacmorgan"
+
+# Config vim
+echo set number >> ~/.vimrc
+echo filetype plugin indent on >> ~/.vimrc
+echo set shiftwidth=4 >> ~/.vimrc
