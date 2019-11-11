@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# First argument is whether to increase or decrease brightness
+upOrDown=$1
+
+# Find current brightness
+currBrightness="$(/usr/lib/gnome-settings-daemon/gsd-backlight-helper --get-brightness)"
+
+if [ $upOrDown = "up" ]; then
+	newBrightness="$(echo $currBrightness + 1000 | bc)"
+elif [ $upOrDown = "down" ]; then
+	newBrightness="$(echo $currBrightness - 1000 | bc)"
+else
+	exit 1
+fi
+
+# Send a system notification for brightness
+notify-send -t 800 "Display backlight set to ${newBrightness}"
+
+# Set brightness
+pkexec /usr/lib/gnome-settings-daemon/gsd-backlight-helper --set-brightness $newBrightness
