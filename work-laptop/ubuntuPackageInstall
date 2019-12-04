@@ -5,10 +5,10 @@
 # Also sets up github
 
 # Application install
-sudo apt install fish vim git terminator python3-pip htop
+sudo apt install fish vim neovim git terminator python3-pip htop
 
 # Set fish as default shell
-chsh -s `which fish`
+chsh hamish -s `which fish`
 
 # Configure git
 git config --global user.email "ham430@gmail.com"
@@ -18,3 +18,9 @@ git config --global user.name "hacmorgan"
 echo set number >> ~/.vimrc
 echo filetype plugin indent on >> ~/.vimrc
 echo set shiftwidth=4 >> ~/.vimrc
+
+# Symlink configs
+ln -s /home/hamish/src/useful-scripts/work-laptop/i3 /home/hamish/.config/i3
+ln -s /home/hamish/src/useful-scripts/work-laptop/fish /home/hamish/.config/fish
+ln -s /home/hamish/.vimrc /home/hamish/.config/nvim/init.vim
+
