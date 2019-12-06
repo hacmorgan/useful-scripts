@@ -1,0 +1,10 @@
+Followed the arch install guide
+
+Mostly was good, install vim in the pacstrap step, should've done the same for networkmanager
+Also run systemctl enable NetworkManager to make it start at boot
+
+Added exec i3 to ~/.xinitrc
+See the arch wiki for starting x at login
+
+Don't forget visudo for editing the sudoers file
+

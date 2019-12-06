@@ -1,0 +1,23 @@
+[global_config]
+[keybindings]
+  go_down = <Super>Down
+  go_left = <Super>Left
+  go_right = <Super>Right
+  go_up = <Super>Up
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#060c12"
+    cursor_color = "#aaaaaa"
+    cursor_shape = ibeam
+    foreground_color = "#6effff"
+    scrollbar_position = hidden
+    show_titlebar = False
