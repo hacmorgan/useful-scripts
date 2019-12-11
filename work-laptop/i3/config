@@ -250,4 +250,5 @@ bindsym XF86MonBrightnessUp exec ~/src/useful-scripts/work-laptop/adjustBackligh
 bindsym XF86MonBrightnessDown exec ~/src/useful-scripts/work-laptop/adjustBacklightGnome down
 bindsym F10 exec ~/src/useful-scripts/adjustKeyboardBacklight UP
 
-
+# Make authentication windows pop up
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
