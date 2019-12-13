@@ -197,7 +197,7 @@ default_border pixel 0
 bindsym $mod+r mode "resize"
 
 # Set gaps
-gaps inner 20
+gaps inner 16
 gaps outer 1
 smart_gaps on
 
@@ -249,6 +249,9 @@ bindsym $mod+Shift+o exec code
 bindsym XF86MonBrightnessUp exec ~/src/useful-scripts/work-laptop/adjustBacklightGnome up
 bindsym XF86MonBrightnessDown exec ~/src/useful-scripts/work-laptop/adjustBacklightGnome down
 bindsym F10 exec ~/src/useful-scripts/adjustKeyboardBacklight UP
+
+# Disable touchpad
+bindsym F7 exec ~/src/useful-scripts/disableTouchpad 
 
 # Make authentication windows pop up
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &

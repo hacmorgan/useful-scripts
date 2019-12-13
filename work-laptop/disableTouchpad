@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Find whether the touchpad is disabled at present
+curr="$(synclient -l | grep "Touchpad")"
+
+# Split the line up by spaces into a list
+cur=( $curr )
+
+# Extract touchpad status
+tpstat=${cur[2]}
+
+if [ $tpstat = "1" ]; then
+   synclient TouchpadOff=0
+   notify-send -t 300 "Touchpad enabled"
+   echo "Touchpad enabled"
+else
+   synclient TouchpadOff=1
+   notify-send -t 300 "Touchpad disabled"
+   echo "Touchpad disabled"
+fi
+
