@@ -1,0 +1,11 @@
+#!/bin/bash
+padid=21
+penid=17
+ 
+## WE WISH TO MAP THE BUTTONS ON THE PAD (id: 21)
+# setting 1 (Eric's preference)
+xsetwacom --set "$padid" button 1 "key p" # create a new polygon
+xsetwacom --set "$padid" button 2 "key Delete" # delete last polygon
+xsetwacom --set "$padid" button 3 "key d" # next image
+xsetwacom --set "$padid" button 8 "key Tab" # cycle through classes
+xsetwacom -v --set "$penid" maptooutput 1920x1080+0+0
