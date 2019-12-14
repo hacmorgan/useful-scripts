@@ -5,7 +5,7 @@
 # Make sure to run sudo pacman -Syyu beforehand
 
 # Install packages
-sudo pacman -S --noconfirm fish fortune-mod feh vim neovim htop glances gimp terminator firefox pcmanfm
+sudo pacman -S --noconfirm fish openssh fortune-mod feh vim neovim htop glances gimp terminator firefox pcmanfm
 sudo pacman -S --noconfirm i3-gaps xorg xorg-server xorg-xinit dmenu i3status
 
 # Config git
