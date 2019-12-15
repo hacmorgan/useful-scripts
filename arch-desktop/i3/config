@@ -176,23 +176,23 @@ bindsym $mod+r mode "resize"
 
 
 # BAR
-bar {
-        status_command i3status
-                
-        position top
-	height 18
-        colors {
-        background #282A36
-        statusline #F8F8F2
-        separator  #44475A
-
-        focused_workspace  #aa34f7 #aa34f7 #F8F8F2
-        active_workspace   #282A36 #44475A #F8F8F2
-        inactive_workspace #282A36 #282A36 #BFBFBF
-        urgent_workspace   #FF5555 #FF5555 #F8F8F2
-        binding_mode       #FF5555 #FF5555 #F8F8F2
-        }
-}
+#bar {
+#        status_command i3status
+#                
+#        position top
+#	height 18
+#        colors {
+#        background #282A36
+#        statusline #F8F8F2
+#        separator  #44475A
+#
+#        focused_workspace  #aa34f7 #aa34f7 #F8F8F2
+#        active_workspace   #282A36 #44475A #F8F8F2
+#        inactive_workspace #282A36 #282A36 #BFBFBF
+#        urgent_workspace   #FF5555 #FF5555 #F8F8F2
+#        binding_mode       #FF5555 #FF5555 #F8F8F2
+#        }
+#}
 
 gaps inner 12
 gaps outer 1
@@ -218,4 +218,25 @@ default_border pixel 0
 exec --no-startup-id xrandr --output HDMI-4 --primary --right-of DVI-D-1
 
 # Desktop backgrounds
-exec --no-startup-id feh --bg-center ~/src/useful-scripts/arch-desktop/eboy_ny.png --bg-center ~/src/useful-scripts/arch-desktop/eboy_tok.png
+exec --no-startup-id feh --bg-center ~/src/useful-scripts/arch-desktop/eboy_tok.png --bg-center ~/src/useful-scripts/arch-desktop/eboy_ny.png
+
+# Move workspaces between screens
+bindsym $mod+Ctrl+Shift+Left move workspace to output left
+bindsym $mod+Ctrl+Shift+Right move workspace to output right
+
+# Polybar
+exec_always --no-startup-id "/home/hamish/.config/polybar/launch.sh"
+
+
+###############
+# KEYBINDINGS #
+###############
+
+# Firefox
+bindsym $mod+Shift+f exec firefox
+
+# Emacs
+bindsym $mod+Shift+o exec emacs
+
+# pcmanfm
+bindsym $mod+Shift+t exec pcmanfm

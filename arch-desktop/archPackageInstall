@@ -1,21 +1,19 @@
-#/bin/bash
+#!/bin/bash
 
 # Script for auto installing most of the useful stuff in a new system, then setting up git
-# Make sure to run sudo pacman -Syyu beforehand
 
-# Install packages
-sudo pacman -S --noconfirm fish fortune-mod vim neovim htop glances gimp terminator
-sudo pacman -S --noconfirm i3-gaps xorg xorg-server xorg-xinit dmenu i3status
+# Perform an update
+sudo pacman -Syu
 
 # Config git
 git config --global user.email "ham430@gmail.com"
 git config --global user.name "hacmorgan"
 
-# Config vim
-echo set number >> ~/.vimrc
-echo filetype plugin indent on >> ~/.vimrc
-echo set shiftwidth=4 >> ~/.vimrc
-echo set tabstop=4 >> ~/.vimrc
+# Run the config scripts in install-scripts
+bash /home/hamish/src/useful-scripts/arch-desktop/install-scripts/system-utils
+bash /home/hamish/src/useful-scripts/arch-desktop/install-scripts/shell-terminal
+bash /home/hamish/src/useful-scripts/arch-desktop/install-scripts/editors
+bash /home/hamish/src/useful-scripts/arch-desktop/install-scripts/graphical
 
-# Set fish as default shell
-chsh hamish -s `which fish`
+# Install other packages
+sudo pacman -S --noconfirm gimp

@@ -1,0 +1,19 @@
+[global_config]
+[keybindings]
+  help = <Shift>F1
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#030a0f"
+    cursor_color = "#aaaaaa"
+    foreground_color = "#d7d4ff"
+    scrollbar_position = hidden
+    show_titlebar = False

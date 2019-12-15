@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# This script installs the shell and terminal,
+# then symlinks their configs to the appropriate locations
+
+# Install terminator and zsh
+sudo pacman -S --noconfirm terminator zsh fortune-mod
+
+
+# Install oh-my-zsh, theme, and fonts
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+
+
+# Symlink config files
+rm /home/hamish/.zshrc
+ln -s /home/hamish/src/useful-scripts/arch-desktop/.zshrc /home/hamish/.zshrc
+ln -s /home/hamish/src/useful-scripts/arch-desktop/terminator /home/hamish/.config/terminator
+ln -s /home/hamish/src/useful-scripts/arch-desktop/.p10k.zsh /home/hamish/.p10k.zsh

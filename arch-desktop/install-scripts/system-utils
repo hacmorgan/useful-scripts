@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Script to install the utilities needed by the system
+
+# Install packages
+sudo pacman -S --noconfirm pulseaudio pulsemixer htop glances scrot

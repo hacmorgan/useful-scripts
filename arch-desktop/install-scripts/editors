@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Script to install and configure text editors
+
+# Install packages
+sudo pacman -S --noconfirm vim neovim emacs
+
+# Install evilmode and cyberpunk
+git clone --depth 1 https://github.com/emacs-evil/evil ~/.emacs.d/evil
+git clone https://github.com/n3mo/cyberpunk-theme.el ~/.emacs.d/cyberpunk
+
+# Symlink configs
+rm ~/.vimrc
+mkdir -p ~/.config/nvim
+ln -s /home/hamish/src/useful-scripts/arch-desktop/.emacs /home/hamish/.emacs
+ln -s /home/hamish/src/useful-scripts/arch-desktop/.vimrc /home/hamish/.config/nvim/config.vim
+ln -s /home/hamish/src/useful-scripts/arch-desktop/.vimrc /home/hamish/.vimrc
+
+
