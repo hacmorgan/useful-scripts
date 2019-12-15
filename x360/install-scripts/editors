@@ -13,8 +13,8 @@ git clone https://code.orgmode.org/bzg/org-mode.git ~/.emacs.d/org
 # Symlink configs
 rm ~/.vimrc
 mkdir -p ~/.config/nvim
-ln -s /home/hamish/src/useful-scripts/arch-desktop/.emacs /home/hamish/.emacs
-ln -s /home/hamish/src/useful-scripts/arch-desktop/.vimrc /home/hamish/.config/nvim/config.vim
-ln -s /home/hamish/src/useful-scripts/arch-desktop/.vimrc /home/hamish/.vimrc
+ln -s /home/hamish/src/useful-scripts/x360/.emacs /home/hamish/.emacs
+ln -s /home/hamish/src/useful-scripts/x360/.vimrc /home/hamish/.config/nvim/config.vim
+ln -s /home/hamish/src/useful-scripts/x360/.vimrc /home/hamish/.vimrc
 
 

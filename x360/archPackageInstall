@@ -2,31 +2,23 @@
 
 
 # Script for auto installing most of the useful stuff in a new system, then setting up git
-# Make sure to run sudo pacman -Syyu beforehand
 
-# Install packages
-sudo pacman -S --noconfirm fish openssh fortune-mod feh vim neovim htop glances gimp terminator firefox pcmanfm
-sudo pacman -S --noconfirm i3-gaps xorg xorg-server xorg-xinit dmenu i3status
+sudo pacman -Syu
 
 # Config git
 git config --global user.email "ham430@gmail.com"
 git config --global user.name "hacmorgan"
 
-# Config vim
-echo set number >> ~/.vimrc
-echo filetype plugin indent on >> ~/.vimrc
-echo set shiftwidth=4 >> ~/.vimrc
-echo set tabstop=4 >> ~/.vimrc
-
-# Set fish as default shell
-chsh hamish -s `which fish`
-
-# Link files as appropriate
-mkdir -p ~/.config/nvim
-ln -s /home/hamish/.vimrc /home/hamish/.config/nvim/config.vim
-ln -s /home/hamish/src/useful-scripts/x360/fish /home/hamish/.config/fish
-ln -s /home/hamish/src/useful-scripts/x360/i3 /home/hamish/.config/i3
-ln -s /home/hamish/src/useful-scripts/x360/terminator /home/hamish/.config/terminator
-
 # Set up libinput
 sudo ln -s /home/hamish/src/useful-scripts/x360/40-libinput.conf /etc/X11/xorg.conf.d/40-libinput.conf
+
+# Run setup scripts
+bash /home/hamish/src/useful-scripts/x360/install-scripts/system-utils
+bash /home/hamish/src/useful-scripts/x360/install-scripts/shell-terminal
+bash /home/hamish/src/useful-scripts/x360/install-scripts/editors
+bash /home/hamish/src/useful-scripts/x360/install-scripts/graphical
+
+# Install packages
+sudo pacman -S --noconfirm gimp firefox 
+
+

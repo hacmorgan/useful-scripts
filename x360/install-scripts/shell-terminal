@@ -19,6 +19,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # Symlink config files
 rm /home/hamish/.zshrc
-ln -s /home/hamish/src/useful-scripts/arch-desktop/.zshrc /home/hamish/.zshrc
-ln -s /home/hamish/src/useful-scripts/arch-desktop/terminator /home/hamish/.config/terminator
-ln -s /home/hamish/src/useful-scripts/arch-desktop/.p10k.zsh /home/hamish/.p10k.zsh
+ln -s /home/hamish/src/useful-scripts/x360/.zshrc /home/hamish/.zshrc
+ln -s /home/hamish/src/useful-scripts/x360/terminator /home/hamish/.config/terminator
+ln -s /home/hamish/src/useful-scripts/x360/.p10k.zsh /home/hamish/.p10k.zsh

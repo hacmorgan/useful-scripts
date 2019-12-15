@@ -3,7 +3,7 @@
 # This script installs and configures all things graphical (i.e. i3 and polybar etc)
 
 # Install packages
-sudo pacman -S --noconfirm xorg-server xorg-xinit dmenu
+sudo pacman -S --noconfirm xorg-server xorg-xinit dmenu light
 
 # Install polybar
 cd /tmp
@@ -25,8 +25,8 @@ makepkg-si
 
 
 # Symlink configs
-ln -s /home/hamish/src/useful-scripts/arch-desktop/i3 /home/hamish/.config/i3
-ln -s /home/hamish/src/useful-scripts/arch-desktop/polybar /home/hamish/.config/polybar
-ln -s /home/hamish/src/useful-scripts/arch-desktop/compton.conf /home/hamish/.config/
+ln -s /home/hamish/src/useful-scripts/x360/i3 /home/hamish/.config/i3
+ln -s /home/hamish/src/useful-scripts/x360/polybar /home/hamish/.config/polybar
+ln -s /home/hamish/src/useful-scripts/x360/compton.conf /home/hamish/.config/
 
 

@@ -15,5 +15,6 @@
     background_color = "#030a0f"
     cursor_color = "#aaaaaa"
     foreground_color = "#d7d4ff"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#161616:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
     scrollbar_position = hidden
     show_titlebar = False

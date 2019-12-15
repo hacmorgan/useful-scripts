@@ -16,4 +16,4 @@ bash /home/hamish/src/useful-scripts/arch-desktop/install-scripts/editors
 bash /home/hamish/src/useful-scripts/arch-desktop/install-scripts/graphical
 
 # Install other packages
-sudo pacman -S --noconfirm gimp
+sudo pacman -S --noconfirm gimp firefox
