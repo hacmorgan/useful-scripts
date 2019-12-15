@@ -23,12 +23,12 @@ background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
+primary = #dd1fff
 secondary = #e60053
 alert = #bd2c40
 
 [bar/gaps]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -81,21 +81,21 @@ cursor-scroll = ns-resize
 type = internal/xwindow
 label = %title:0:30:...%
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+;[module/xkeyboard]
+;type = internal/xkeyboard
+;blacklist-0 = num lock
+;
+;format-prefix = " "
+;format-prefix-foreground = ${colors.foreground-alt}
+;format-prefix-underline = ${colors.secondary}
+;
+;label-layout = %layout%
+;label-layout-underline = ${colors.secondary}
+;
+;label-indicator-padding = 2
+;label-indicator-margin = 1
+;label-indicator-background = ${colors.secondary}
+;label-indicator-underline = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
@@ -136,7 +136,7 @@ index-sort = true
 wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -276,8 +276,9 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
-label-volume-foreground = ${root.foreground}
+format-volume-prefix = "VOL: " 
+label-volume = %percentage%%
+format-volume-prefix-foreground = ${colors.foreground-alt}
 
 label-muted = 🔇 muted
 label-muted-foreground = #666
@@ -299,33 +300,33 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+;[module/alsa]
+;type = internal/alsa
+;
+;format-volume = <label-volume> <bar-volume>
+;label-volume = VOL
+;label-volume-foreground = ${root.foreground}
+;
+;format-muted-prefix = " "
+;format-muted-foreground = ${colors.foreground-alt}
+;label-muted = sound muted
+;
+;bar-volume-width = 10
+;bar-volume-foreground-0 = #55aa55
+;bar-volume-foreground-1 = #55aa55
+;bar-volume-foreground-2 = #55aa55
+;bar-volume-foreground-3 = #55aa55
+;bar-volume-foreground-4 = #55aa55
+;bar-volume-foreground-5 = #f5a70a
+;bar-volume-foreground-6 = #ff5555
+;bar-volume-gradient = false
+;bar-volume-indicator = |
+;bar-volume-indicator-font = 2
+;bar-volume-fill = ─
+;bar-volume-fill-font = 2
+;bar-volume-empty = ─
+;bar-volume-empty-font = 2
+;bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
@@ -367,11 +368,15 @@ animation-discharging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 65
 
 format = <ramp> <label>
+format-prefix = "TEMP: "
+format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
+format-warn-prefix-foreground = ${colors.foreground-alt}
+format-warn-prefix = "TEMP: "
 format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%

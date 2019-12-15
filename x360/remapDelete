@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Script for remapping the delete key, to be called by i3
+xmodmap -e "keycode 191 = Delete"

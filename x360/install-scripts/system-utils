@@ -4,3 +4,7 @@
 
 # Install packages
 sudo pacman -S --noconfirm openssh pcmanfm unzip pulseaudio pulsemixer feh htop glances scrot numlockx
+
+# Configure lid closing with systemd
+sudo mv /etc/systemd/logind.conf /etc/systemd/logind.conf.old
+sudo ln -s /home/hamish/src/useful-scripts/x360/logind.conf /etc/systemd/logind.conf

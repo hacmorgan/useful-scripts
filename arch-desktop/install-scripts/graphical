@@ -21,7 +21,7 @@ makepkg -si
 cd /tmp
 git clone https://aur.archlinux.org/i3-gaps-rounded-git.git
 cd i3-gaps-rounded-git
-makepkg-si
+makepkg -si
 
 
 # Symlink configs
