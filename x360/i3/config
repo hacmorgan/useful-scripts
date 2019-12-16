@@ -228,9 +228,6 @@ exec_always --no-startup-id "/home/hamish/.config/polybar/launch.sh"
 # Compton
 exec compton
 
-# Remap delete
-exec-always --no-startup-id "bash /home/hamish/src/useful-scripts/x360/remapDelete"
-
 
 ###############
 # KEYBINDINGS #
