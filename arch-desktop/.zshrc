@@ -144,3 +144,4 @@ bash /home/hamish/src/useful-scripts/arch-desktop/i3start
 alias oldvim=vim
 alias vim=nvim
 alias -g cdu='cd ~/src/useful-scripts/'
+alias temacs='emacs -nw'
