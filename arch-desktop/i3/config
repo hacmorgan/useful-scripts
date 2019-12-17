@@ -202,6 +202,7 @@ bindsym $mod+Ctrl+Up resize grow height 5px
 
 gaps inner 12
 gaps outer 1
+gaps top -2
 smart_gaps on
 smart_borders on
 bindsym $mod+Shift+g mode "$mode_gaps"

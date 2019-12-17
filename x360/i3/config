@@ -241,3 +241,9 @@ bindsym $mod+Shift+t exec pcmanfm
 
 # Emacs
 bindsym $mod+Shift+o exec emacs
+
+# Brightness ctl
+bindsym $mod+F7 exec "light -A 10"
+bindsym $mod+F6 exec "light -U 10"
+bindsym $mod+Shift+F7 exec "light -s sysfs/leds/chromeos::kbd_backlight -A 10"
+bindsym $mod+Shift+F6 exec "light -s sysfs/leds/chromeos::kbd_backlight -U 10"

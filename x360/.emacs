@@ -14,9 +14,14 @@
 ;; Initialise cyberpunk theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/cyberpunk/")
 
+;; Use evilmode
 (require 'evil)
 (evil-mode 1)
+
+;; Change meta key to super
 (setq x-super-keysym 'meta)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -45,5 +50,14 @@
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
 ;; Move between windows
 (windmove-default-keybindings)
+
+;; Set where emacs stores its backup files, and make sure it backs up by copying the file
+(setq backup-directory-alist `(("." . "~/.emacs_backups")))
+(setq backup-by-copying t)
+
+;; Set python to indent by tabs
+(setq-default tab-width 4)
+(setq python-indent-tabs-mode t)

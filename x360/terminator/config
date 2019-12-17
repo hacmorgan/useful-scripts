@@ -4,6 +4,7 @@
   go_left = <Super>Left
   go_right = <Super>Right
   go_up = <Super>Up
+  help = <Shift>F1
 [layouts]
   [[default]]
     [[[child1]]]
@@ -15,7 +16,7 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#060c12"
+    background_color = "#030609"
     cursor_color = "#aaaaaa"
     cursor_shape = ibeam
     foreground_color = "#6effff"
