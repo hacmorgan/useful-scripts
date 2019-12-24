@@ -70,12 +70,16 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+###########
+# PLUGINS #
+###########
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,6 +113,18 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+###########
+# ALIASES #
+###########
+alias oldvim=vim
+alias vim=nvim
+alias -g cdu='cd ~/src/useful-scripts/'
+alias temacs='emacs -nw'
+alias sdn='shutdown now'
+
+# Remap Delete
+xmodmap -e "keycode 191 = Delete"
+
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -132,17 +148,15 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Start i3
-bash /home/hamish/src/useful-scripts/arch-desktop/i3start
+bash /home/hamish/src/useful-scripts/x360/i3start
 
 
-###########
-# ALIASES #
-###########
-alias oldvim=vim
-alias vim=nvim
-alias -g cdu='cd ~/src/useful-scripts/'
-alias temacs='emacs -nw'
 
 
-# Remap Delete
-xmodmap -e "keycode 191 = Delete"
+
+############
+# GREETING #
+############
+fortune -a
+# Newline
+echo

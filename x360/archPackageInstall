@@ -22,3 +22,4 @@ bash /home/hamish/src/useful-scripts/x360/install-scripts/graphical
 sudo pacman -S --noconfirm gimp firefox 
 
 
+# Don't forget that chmod 777 will make the ext4 filesystem of the sd card writable

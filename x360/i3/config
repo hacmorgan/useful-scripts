@@ -179,6 +179,9 @@ bindsym $mod+Ctrl+Right resize grow width 5px
 bindsym $mod+Ctrl+Down resize shrink height 5px
 bindsym $mod+Ctrl+Up resize grow height 5px
 
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
 # BAR
 #bar {
 #        status_command i3status

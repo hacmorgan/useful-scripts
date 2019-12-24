@@ -1,0 +1,2 @@
+* Things that cannot be scripted
+- It is usually necessary to modify /etc/systemd/logind.conf in order to control how the system reacts to the power button or lid being closed

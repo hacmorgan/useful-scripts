@@ -31,8 +31,9 @@
  '(custom-enabled-themes (quote (cyberpunk)))
  '(custom-safe-themes
    (quote
-    ("1a232652b04b68380b1cff7ceeb62787b4eb43df826a97c67831c50b0c0d1451" default)))
+	("1a232652b04b68380b1cff7ceeb62787b4eb43df826a97c67831c50b0c0d1451" default)))
  '(display-line-numbers (quote relative))
+ '(doc-view-continuous t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil nil nil "Enables the menu bar")
  '(scroll-bar-mode nil)
@@ -53,6 +54,12 @@
 
 ;; Move between windows
 (windmove-default-keybindings)
+;; Make windmove work in org-mode:
+(add-hook 'org-shiftup-final-hook 'windmove-up)
+(add-hook 'org-shiftleft-final-hook 'windmove-left)
+(add-hook 'org-shiftdown-final-hook 'windmove-down)
+(add-hook 'org-shiftright-final-hook 'windmove-right)
+
 
 ;; Set where emacs stores its backup files, and make sure it backs up by copying the file
 (setq backup-directory-alist `(("." . "~/.emacs_backups")))
@@ -61,3 +68,7 @@
 ;; Set python to indent by tabs
 (setq-default tab-width 4)
 (setq python-indent-tabs-mode t)
+
+
+;; (add-hook 'org-mode-hook #'toggle-word-wrap)
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
