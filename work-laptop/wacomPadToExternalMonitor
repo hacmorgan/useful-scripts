@@ -1,6 +1,6 @@
 #!/bin/bash
-padid=21
-penid=17
+padid=17
+penid=18
  
 ## WE WISH TO MAP THE BUTTONS ON THE PAD (id: 21)
 # setting 1 (Eric's preference)

@@ -201,7 +201,7 @@ gaps inner 16
 gaps outer 1
 smart_gaps on
 
-
+exec compton
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -242,8 +242,8 @@ bindsym $mod+Ctrl+Shift+Right move workspace to output right
 # Set background
 exec_always --no-startup-id "feh --bg-center ~/Pictures/Wallpapers/eboy.png"
 
-# vscode
-bindsym $mod+Shift+o exec code
+# emacs
+bindsym $mod+Shift+o exec emacs
 
 # Brightness keys
 bindsym XF86MonBrightnessUp exec ~/src/useful-scripts/work-laptop/adjustBacklightGnome up
@@ -251,7 +251,7 @@ bindsym XF86MonBrightnessDown exec ~/src/useful-scripts/work-laptop/adjustBackli
 bindsym F10 exec ~/src/useful-scripts/adjustKeyboardBacklight UP
 
 # Disable touchpad
-bindsym F7 exec ~/src/useful-scripts/disableTouchpad 
+bindsym $mod+F7 exec ~/src/useful-scripts/disableTouchpad 
 
 # Make authentication windows pop up
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &

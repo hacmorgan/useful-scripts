@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# This script installs and configures all things graphical (i.e. i3 and polybar etc)
+
+# Install packages
+#sudo pacman -S --noconfirm xorg-server xorg-xinit dmenu light
+
+# Install polybar
+cd /tmp
+git clone https://aur.archlinux.org/polybar.git
+cd polybar
+makepkg -si
+
+# Install compton
+cd /tmp
+git clone https://aur.archlinux.org/compton-rounded-corners.git
+cd compton-rounded-corners
+makepkg -si
+
+# Install i3-rounded
+cd /tmp
+git clone https://aur.archlinux.org/i3-gaps-rounded-git.git
+cd i3-gaps-rounded-git
+makepkg -si
+
+
+# Symlink configs
+ln -s /home/hamish/src/useful-scripts/x360/i3 /home/hamish/.config/i3
+ln -s /home/hamish/src/useful-scripts/x360/polybar /home/hamish/.config/polybar
+ln -s /home/hamish/src/useful-scripts/x360/compton.conf /home/hamish/.config/
+
+
