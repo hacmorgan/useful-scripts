@@ -231,6 +231,9 @@ exec_always --no-startup-id "/home/hamish/.config/polybar/launch.sh"
 # Compton
 exec compton
 
+# Dunst (for notify-send)
+exec dunst
+
 
 ###############
 # KEYBINDINGS #
