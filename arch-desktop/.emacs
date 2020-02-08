@@ -23,13 +23,18 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
+ '(company-auto-complete (quote (quote company-explicit-action-p)))
  '(custom-enabled-themes (quote (cyberpunk)))
  '(custom-safe-themes
    (quote
-    ("1a232652b04b68380b1cff7ceeb62787b4eb43df826a97c67831c50b0c0d1451" default)))
+	("1a232652b04b68380b1cff7ceeb62787b4eb43df826a97c67831c50b0c0d1451" default)))
  '(display-line-numbers (quote relative))
+ '(doc-view-continuous t)
+ '(electric-pair-mode t)
+ '(global-company-mode t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil nil nil "Enables the menu bar")
+ '(package-selected-packages (quote (company)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(vc-follow-symlinks t))
@@ -47,3 +52,16 @@
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 ;; Move between windows
 (windmove-default-keybindings)
+
+
+;; Set where emacs stores its backup files, and make sure it backs up by copying the file
+(setq backup-directory-alist `(("." . "~/.emacs_backups")))
+(setq backup-by-copying t)
+
+;; Set python to indent by tabs
+(setq-default tab-width 4)
+(setq python-indent-tabs-mode t)
+
+
+;; (add-hook 'org-mode-hook #'toggle-word-wrap)
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
