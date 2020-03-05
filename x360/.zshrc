@@ -132,7 +132,9 @@ xmodmap -e "keycode 191 = Delete"
 
 
 # Add to path
-export PATH=$HOME/.local/bin:$PATH
+path+='$HOME/.local/bin:$PATH'
+path+='/home/hamish/src/useful-scripts/x360'
+export PATH
 
 
 ############
