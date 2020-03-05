@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# This script installs the shell and terminal,
+# then symlinks their configs to the appropriate locations
+
+# Install terminator and zsh
+sudo pacman -S --noconfirm terminator zsh fortune-mod
+
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
