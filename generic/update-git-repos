@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Script to automatically pull code from all git repos, and commit and push any changes
+
+# find which computer we are using
+hostname=$(cat /etc/hostname)
+if [[ $hostname = rgboi ]]; then
+	pc_folder=arch-desktop
+elif [[ $hostname = x360 ]]; then
+	pc_folder=x360
+else
+	echo This PC\'s hostname was not recognised, has it changed?
+	exit 1
+fi
+
+# Make sure this script can be run from anywhere
+for f in $(cat $(dirname "$0")/../$pc_folder/git-repos.txt)
+do
+	echo
+	echo Updating git repo: $f
+	cd $f
+	git pull --recurse-submodules=yes
+	git commit -a -m "automatic update"
+	git push
+done

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+# Script for auto installing most of the useful stuff in a new system, then setting up git
+
+
+# find which computer we are using
+hostname=$(cat /etc/hostname)
+if [[ $hostname = rgboi ]]; then
+	pc_folder=arch-desktop
+elif [[ $hostname = x360 ]]; then
+	pc_folder=x360
+else
+	echo This PC\'s hostname was not recognised, has it changed?
+	exit 1
+fi
+
+# Perform an update
+sudo pacman -Syu
+
+# Install packages available through pacman
+sudo pacman -S --noconfirm $(cat $(dirname "$0")/../$pc_folder/default-packages.txt)
+
+# Configure git
+git config --global user.email "ham430@gmail.com"
+git config --global user.name "hacmorgan"
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

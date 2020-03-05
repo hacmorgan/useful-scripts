@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Script to install the utilities needed by the system
-
-# Install packages
-sudo pacman -S --noconfirm openssh pcmanfm unzip pulseaudio pulsemixer feh htop glances scrot numlockx
