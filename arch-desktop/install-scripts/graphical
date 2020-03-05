@@ -5,20 +5,22 @@
 # Install packages
 sudo pacman -S --noconfirm xorg-server xorg-xinit dmenu
 
+mkdir -p ~/src
+
 # Install polybar
-cd /tmp
+cd ~/src
 git clone https://aur.archlinux.org/polybar.git
 cd polybar
 makepkg -si
 
 # Install compton
-cd /tmp
+cd ~/src
 git clone https://aur.archlinux.org/compton-rounded-corners.git
 cd compton-rounded-corners
 makepkg -si
 
 # Install i3-rounded
-cd /tmp
+cd ~/src
 git clone https://aur.archlinux.org/i3-gaps-rounded-git.git
 cd i3-gaps-rounded-git
 makepkg -si

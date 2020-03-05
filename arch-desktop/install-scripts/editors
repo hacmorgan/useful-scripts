@@ -11,10 +11,9 @@ git clone https://github.com/n3mo/cyberpunk-theme.el ~/.emacs.d/cyberpunk
 git clone https://code.orgmode.org/bzg/org-mode.git ~/.emacs.d/org
 
 # Symlink configs
-rm ~/.vimrc
+if [ -f /home/hamish/.vimrc ]; then rm ~/.vimrc; fi
 mkdir -p ~/.config/nvim
 ln -s /home/hamish/src/useful-scripts/arch-desktop/.emacs /home/hamish/.emacs
-ln -s /home/hamish/src/useful-scripts/arch-desktop/.vimrc /home/hamish/.config/nvim/config.vim
-ln -s /home/hamish/src/useful-scripts/arch-desktop/.vimrc /home/hamish/.vimrc
+ln -s /home/hamish/src/useful-scripts/arch-desktop/.vimrc /home/hamish/.config/nvim/init.vim
 
 

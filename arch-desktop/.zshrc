@@ -153,4 +153,5 @@ alias rsn='shutdown -r now'
 # PATH #
 ########
 path+=('/home/hamish/.local/bin')
+path+='/home/hamish/src/useful-scripts/arch-desktop'
 export PATH
