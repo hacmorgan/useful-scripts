@@ -38,6 +38,7 @@
  '(global-company-mode t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil nil nil "Enables the menu bar")
+ '(org-support-shift-select t)
  '(package-selected-packages (quote (company)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
