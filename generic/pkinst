@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# pacman wrapper that appends the installed package to either the local or global package list file
+
+
+# Function to check whether the given package is already in the package-file
+# returns 1 if the package exists, 0 if it does not
+check_if_exists_in_file() {
+	local package_file="$1"
+	local package="$2"
+	for f in $(cat $package_file); do
+		if [[ $package = $f ]]; then
+			echo "The package $package is already on the install list"
+			return 1
+		fi
+	done
+	return 0
+}
+
+
+# find which computer we are using
+hostname=$(cat /etc/hostname)
+if [[ $hostname = rgboi ]]; then
+	pc_folder=arch-desktop
+elif [[ $hostname = x360 ]]; then
+	pc_folder=x360
+else
+	echo This PC\'s hostname was not recognised, has it changed?
+	exit 1
+fi
+
+# Parse arguments
+local_or_global="$1"
+packages="${@:2}"
+
+# Determine which text file to look in
+if [[ $local_or_global = local ]]; then
+	package_file=$(dirname "$0")/../$pc_folder/default-packages.txt
+elif [[ $local_or_global = global ]]; then
+	package_file=$(dirname "$0")/common-default-packages.txt
+else
+	echo "Please specify local or global as 1st argument"
+	exit 1
+fi
+
+# If the package is not on the install list, add it
+for arg in $packages; do
+	check_if_exists_in_file $package_file $arg
+	if [[ $? = 0 ]]; then
+		echo $arg >> $package_file
+	fi
+done
+
+# regardless of whether a package is or isn't on the list, we install it anyway
+sudo pacman -S "$packages"
+
+
+
+#1st_arg="$1"
+
