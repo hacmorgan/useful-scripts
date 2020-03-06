@@ -19,6 +19,7 @@ fi
 sudo pacman -Syu
 
 # Install packages available through pacman
+sudo pacman -S --noconfirm $(cat $(dirname "$0")/common-default-packages.txt)
 sudo pacman -S --noconfirm $(cat $(dirname "$0")/../$pc_folder/default-packages.txt)
 
 # Configure git

@@ -1,0 +1,54 @@
+#!/bin/bash
+
+common=/home/hamish/src/useful-scripts/generic/common-default-packages.txt
+x360=/home/hamish/src/useful-scripts/x360/default-packages.txt
+rgboi=/home/hamish/src/useful-scripts/arch-desktop/default-packages.txt
+temp=/tmp/temp-packages.txt
+
+# Function to check whether the given package is already in the package-file
+# returns 1 if the package exists, 0 if it does not
+check_if_exists_in_file() {
+	local package_file="$1"
+	local package="$2"
+	for f in $(cat $package_file); do
+		if [[ $package = $f ]]; then
+			return 1
+		fi
+	done
+	return 0
+}
+
+# Start by checking if each x360 package is in rgboi
+for pkg in $(cat $x360); do
+	check_if_exists_in_file $rgboi $pkg
+	if [[ $? = 0 ]]; then
+		# If the package isnt in rgboi, preserve it in this list
+		echo $pkg >> $temp
+	else
+		# If the package is in rgboi, we check if it's already in common
+		check_if_exists_in_file $common $pkg
+		if [[ $? = 0 ]]; then
+			# If it isn't in common, add it
+			echo $pkg >> $common
+		fi
+	fi
+done
+# Replace x360 with the trimmed list
+mv $temp $x360
+rm $temp
+
+
+
+# Now repeat the other way around
+# Start by checking if each x360 package is in rgboi
+for pkg in $(cat $rgboi); do
+	# If the package is in rgboi, we check if it's already in common
+	check_if_exists_in_file $common $pkg
+	if [[ $? = 0 ]]; then
+		# If it isn't in common, add it to temp
+		echo $pkg >> $temp
+	fi
+done
+# Replace x360 with the trimmed list
+mv $temp $rgboi
+rm $temp
