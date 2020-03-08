@@ -5,23 +5,6 @@ icons = "awesome"
 name = "slick"
 [theme.overrides]
 info_bg = "#ad29c4"
-#idle_bg: "#424242".to_owned(),
-#        idle_fg: "#ffffff".to_owned(),
-#        info_bg: "#2196f3".to_owned(),
-#        info_fg: "#ffffff".to_owned(),
-#        good_bg: "#8bc34a".to_owned(),
-#        good_fg: "#000000".to_owned(),
-#        warning_bg: "#ffc107".to_owned(),
-#        warning_fg: "#000000".to_owned(),
-#        critical_bg: "#f44336".to_owned(),
-#        critical_fg: "#ffffff".to_owned(),
-#        separator: "\u{e0b2}".to_owned(),
-#        separator_bg: "auto".to_owned(),
-#        separator_fg: "auto".to_owned(),
-#        alternating_tint_bg: "#111111".to_owned(),
-#        alternating_tint_fg: "#111111".to_owned(),
-
-
 
 [[block]]
 block = "disk_space"
@@ -44,30 +27,11 @@ block = "cpu"
 interval = 1
 format = "{barchart} {utilization}% {frequency}GHz"
 
-#[[block]]
-#block = "load"
-#interval = 1
-#format = "{1m}"
-
 [[block]]
 block = "temperature"
 collapsed = false
 interval = 10
 format = "{min}° min, {max}° max, {average}° avg"
-#chip = "*-isa-*"
-
-#[[block]]
-#block = "memory"
-#format_mem = "{Mum}MB/{MTm}MB({Mup}%)"
-#format_swap = "{SUm}MB/{STm}MB({SUp}%)"
-#display_type = "memory"
-#icons = true
-#clickable = true
-#interval = 5
-#warning_mem = 80
-#warning_swap = 80
-#critical_mem = 95
-#critical_swap = 95
 
 [[block]]
 block = "net"
