@@ -44,3 +44,4 @@ ncurses
 networkmanager
 grub
 efibootmgr
+rsync
