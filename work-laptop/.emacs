@@ -14,6 +14,12 @@
 ;; Initialise cyberpunk theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/cyberpunk/")
 
+;; Initialise htmlize (allows code snippets to be rendered in html)
+(add-to-list 'load-path "~/.emacs.d/emacs-htmlize")
+
+;; Initialise markdown mode
+(add-to-list 'load-path "~/.emacs.d/markdown-mode")
+
 ;; Use evilmode
 (require 'evil)
 (evil-mode 1)
@@ -33,9 +39,15 @@
    (quote
 	("1a232652b04b68380b1cff7ceeb62787b4eb43df826a97c67831c50b0c0d1451" default)))
  '(display-line-numbers (quote relative))
+ '(electric-pair-inhibit-predicate (quote electric-pair-conservative-inhibit))
+ '(electric-pair-mode t)
+ '(electric-pair-pairs (quote ((34 . 34) (8220 . 8221) (39 . 39))))
+ '(electric-pair-preserve-balance t)
+ '(electric-quote-string nil)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil nil nil "Enables the menu bar")
  '(org-support-shift-select nil)
+ '(package-selected-packages (quote (markdown-mode company auto-overlays)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(vc-follow-symlinks t))
@@ -72,3 +84,15 @@
 ;; Make word wrap apply in org mode
 ;;(add-hook 'org-mode-hook #'toggle-word-wrap)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+
+;; Turn on autocomplete
+(add-hook 'after-init-hook 'global-company-mode)
+
+;; Set c indent mode
+(setq-default c-basic-offset 4)
+
+;; Enable melpa
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(package-initialize)

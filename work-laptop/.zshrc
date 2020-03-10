@@ -75,7 +75,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,25 +111,25 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+#function zle-keymap-select {
+#  if [[ ${KEYMAP} == vicmd ]] ||
+#     [[ $1 = 'block' ]]; then
+#    echo -ne '\e[1 q'
+#  elif [[ ${KEYMAP} == main ]] ||
+#       [[ ${KEYMAP} == viins ]] ||
+#       [[ ${KEYMAP} = '' ]] ||
+#       [[ $1 = 'beam' ]]; then
+#    echo -ne '\e[5 q'
+#  fi
+#}
+#zle -N zle-keymap-select
+#zle-line-init() {
+#    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+#    echo -ne "\e[5 q"
+#}
+#zle -N zle-line-init
+#echo -ne '\e[5 q' # Use beam shape cursor on startup.
+#preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Start i3
 #bash /home/hamish/src/useful-scripts/arch-desktop/i3start
@@ -141,8 +141,31 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 alias oldvim=vim
 alias vim=nvim
 alias -g cdu='cd ~/src/useful-scripts/'
-alias temacs='emacs -nw'
+alias tem='emacs -nw'
+alias em='emacs'
 alias sdn='shutdown now'
+alias rsn='shutdown -r now'
+alias p3='python3'
+alias mnt_pond='abyss-mount-share hmo rhino-pond /mnt/pond'
+alias mnt_tank='abyss-mount-share hmo rhino-tank /mnt/tank'
 
 # Remap Delete
 xmodmap -e "keycode 191 = Delete"
+
+
+
+
+
+# ROS sourcing
+source /opt/ros/melodic/setup.zsh # ROS install
+#source ~/catkin_ws/devel/setup.zsh 
+source ~/ros/catkin_ws/devel/setup.zsh # Abyss ROS 
+
+# Set the editor
+export EDITOR='emacs -nw'
+
+##############
+#    PATH    #
+##############
+path+='/home/hamish/src/useful-scripts/generic'
+export PATH

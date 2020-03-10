@@ -8,6 +8,8 @@ if [[ $hostname = rgboi ]]; then
 	pc_folder=arch-desktop
 elif [[ $hostname = x360 ]]; then
 	pc_folder=x360
+elif [[ $hostname = inspiron ]]; then
+	pc_folder=work-laptop
 else
 	echo This PC\'s hostname was not recognised, has it changed?
 	exit 1
