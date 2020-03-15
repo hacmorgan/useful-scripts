@@ -45,3 +45,5 @@ networkmanager
 grub
 efibootmgr
 rsync
+python-pip
+python2-pip

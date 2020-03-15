@@ -147,6 +147,8 @@ alias -g cdu='cd ~/src/useful-scripts/'
 alias tem='emacs -nw'
 alias sdn='shutdown now'
 alias rsn='shutdown -r now'
+alias p3='python3'
+alias p2='python2'
 
 
 ########
