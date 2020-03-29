@@ -241,7 +241,7 @@ hide_edge_borders both
 default_border pixel 0
 
 # Set up displays
-exec --no-startup-id xrandr --output HDMI-1 --primary --right-of DVI-D-1
+exec --no-startup-id xrandr --output HDMI-1 --primary --right-of DP-2
 
 # Desktop backgrounds
 exec --no-startup-id feh --bg-center ~/src/useful-scripts/arch-desktop/eboy_ny.png --bg-center ~/src/useful-scripts/arch-desktop/eboy_tok.png
@@ -251,7 +251,7 @@ bindsym $mod+Ctrl+Shift+Left move workspace to output left
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
 # Compton
-exec compton
+exec picom
 
 ###############
 # KEYBINDINGS #

@@ -3,6 +3,9 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
 
 ;; Initialise evilmode
@@ -34,7 +37,7 @@
  '(global-company-mode t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil nil nil "Enables the menu bar")
- '(package-selected-packages (quote (company)))
+ '(package-selected-packages (quote (markdown-mode company)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(vc-follow-symlinks t))
@@ -65,3 +68,11 @@
 
 ;; (add-hook 'org-mode-hook #'toggle-word-wrap)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+
+;; Autoload octave mode on .m files
+(autoload 'octave-mode "octave-mod" nil t)
+(setq auto-mode-alist
+      (cons '("\\.m$" . octave-mode) auto-mode-alist))
+
+;; attempt to fix weird errors when ssh-ing using keys
+(setq tramp-shell-prompt-pattern "^[^$>\n]*[#$%>] *\\(\[[0-9;]*[a-zA-Z] *\\)*")

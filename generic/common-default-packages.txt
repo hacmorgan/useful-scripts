@@ -47,3 +47,5 @@ efibootmgr
 rsync
 python-pip
 python2-pip
+transmission-gtk
+vlc

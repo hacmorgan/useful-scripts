@@ -1,3 +1,7 @@
+# Make a simple prompt for dumb terminals (fixes emacs' problem logging into remotes with zsh)
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return7
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
@@ -79,63 +83,14 @@ plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-## Change cursor shape for different vi modes.
-#function zle-keymap-select {
-#  if [[ ${KEYMAP} == vicmd ]] ||
-#     [[ $1 = 'block' ]]; then
-#    echo -ne '\e[1 q'
-#  elif [[ ${KEYMAP} == main ]] ||
-#       [[ ${KEYMAP} == viins ]] ||
-#       [[ ${KEYMAP} = '' ]] ||
-#       [[ $1 = 'beam' ]]; then
-#    echo -ne '\e[5 q'
-#  fi
-#}
-#zle -N zle-keymap-select
-#zle-line-init() {
-#    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-#    echo -ne "\e[5 q"
-#}
-#zle -N zle-line-init
-#echo -ne '\e[5 q' # Use beam shape cursor on startup.
-#preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Set numlock to be on
 numlockx &
-
-# Start i3
-bash /home/hamish/src/useful-scripts/arch-desktop/i3start
 
 
 ###########
@@ -149,6 +104,9 @@ alias sdn='shutdown now'
 alias rsn='shutdown -r now'
 alias p3='python3'
 alias p2='python2'
+alias sshpi='ssh -Y pi@10.0.0.75'
+alias sshwork='ssh -Y hamish@10.0.0.73'
+alias pm='pulsemixer'
 
 
 ########

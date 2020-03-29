@@ -1,3 +1,5 @@
 pkgstats
 yay
 ntfs-3g
+arandr
+octave
