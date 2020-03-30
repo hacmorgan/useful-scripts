@@ -76,3 +76,8 @@
 
 ;; (add-hook 'org-mode-hook #'toggle-word-wrap)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+
+;; use octave mode for all .m files
+(autoload 'octave-mode "octave-mod" nil t)
+(setq auto-mode-alist
+      (cons '("\\.m$" . octave-mode) auto-mode-alist))

@@ -1,5 +1,6 @@
 /home/hamish/src/useful-scripts 
 /home/hamish/src/projects/neural-networks 
+/home/hamish/src/projects/machine-learning
 /home/hamish/src/projects/bravio 
 /home/hamish/src/projects/gmusic 
 /home/hamish/src/projects/surface-control-panel

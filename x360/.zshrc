@@ -125,6 +125,8 @@ alias rsn='shutdown -r now'
 alias p3='python3'
 alias p2='python2'
 alias steam='flatpak run com.valvesoftware.Steam'
+alias sshwork='ssh -X hamish@10.0.0.73'
+alias sshrgb='ssh -X hamish@10.0.0.67'
 
 
 # Remap Delete
@@ -144,6 +146,4 @@ fortune -a
 # Newline
 echo
 
-# Start i3
-#bash /home/hamish/src/useful-scripts/x360/i3start
 
