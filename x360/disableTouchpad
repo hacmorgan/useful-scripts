@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Get the device id (in case it changes)
+dev_id=$( xinput | grep "TouchPad" | cut -f2 | cut -d= -f2 )
+
+# Allow an argument to be given
+if [[ "$1" = "true" ]]; then
+	xinput disable $dev_id
+elif [[ "$1" = "false" ]]; then
+	xinput enable $dev_id
+else
+	# if not true or false, we just switch states
+	current_state=$(xinput list-props $dev_id | grep "Device Enabled" | cut -f3)
+	[[ $current_state = 0 ]] && xinput enable $dev_id
+	[[ $current_state = 1 ]] && xinput disable $dev_id
+fi

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# A simple script to open a given file in emacs,
+# and detatch the process from the parent terminal 
+
+file=$(realpath $1)
+echo $file
+
+emacs $file &!

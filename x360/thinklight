@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# basic utility to control the thinklight
+# accepts "on", "off", "low", or a number between 1 and 255
+
+state=$1
+
+[[ $state = "on" ]] && brightness=255
+[[ $state = "low" ]] && brightness=100
+[[ $state = "off" ]] && brightness=0
+
+if [[ $state -ge 0 && $state -le 255 ]]; then
+	brightness=$state
+else
+	echo "unrecognised state"
+	echo "accepts \"on\", \"low\", \"off\", or an integer between 0 and 255"
+	exit 1
+fi
+
+think_light_address=/sys/class/leds/tpacpi::thinklight/brightness
+sudo echo $brightness > /sys/class/leds/tpacpi::thinklight/brightness
+
