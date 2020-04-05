@@ -1,3 +1,6 @@
+# Fix problems caused by the powerline theme for emacs
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
@@ -148,7 +151,9 @@ alias rsn='shutdown -r now'
 alias p3='python3'
 alias mnt_pond='abyss-mount-share hmo rhino-pond /mnt/pond'
 alias mnt_tank='abyss-mount-share hmo rhino-tank /mnt/tank'
+alias sshpi='ssh pi@10.137.5.169'
 
+	
 # Remap Delete
 xmodmap -e "keycode 191 = Delete"
 
@@ -168,4 +173,5 @@ export EDITOR='emacs -nw'
 #    PATH    #
 ##############
 path+='/home/hamish/src/useful-scripts/generic'
+path+='/home/hamish/src/useful-scripts/work-laptop'
 export PATH
