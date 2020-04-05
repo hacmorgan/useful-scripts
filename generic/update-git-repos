@@ -6,7 +6,7 @@
 hostname=$(cat /etc/hostname)
 if [[ $hostname = rgboi ]]; then
 	pc_folder=arch-desktop
-elif [[ $hostname = x360 ]]; then
+elif [[ $hostname = thinking_abou_dis ]]; then
 	pc_folder=x360
 elif [[ $hostname = inspiron ]]; then
 	pc_folder=work-laptop

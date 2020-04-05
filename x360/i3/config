@@ -45,6 +45,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec $TERMINAL
 
+# Python terminal
+bindsym $mod+Shift+Return exec $TERMINAL -e python -q
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -204,8 +207,9 @@ bindsym $mod+Shift+Tab workspace prev
 #}
 
 bar {
-    font pango:DejaVu Sans Mono, FontAwesome 10
+    font pango:DejaVu Sans Mono, FontAwesome 9
     position top
+	height 19
     status_command /usr/bin/i3status-rs /home/hamish/.config/i3/status.toml
     colors {
         separator #666666
@@ -220,8 +224,8 @@ bar {
 
 
 gaps inner 12
-gaps outer 1
-gaps top -2
+#gaps outer 1
+#gaps top -2
 smart_gaps on
 bindsym $mod+Shift+g mode "$mode_gaps"
 smart_borders on
@@ -247,7 +251,7 @@ exec --no-startup-id "feh --bg-center ~/src/useful-scripts/x360/eboy_tok.png"
 #exec_always --no-startup-id "/home/hamish/.config/polybar/launch.sh"
 
 # Compton
-exec compton
+exec picom
 
 # Dunst (for notify-send)
 exec dunst
@@ -256,7 +260,6 @@ exec dunst
 ###############
 # KEYBINDINGS #
 ###############
-
 # Firefox
 bindsym $mod+Shift+f exec firefox
 
@@ -267,10 +270,5 @@ bindsym $mod+Shift+t exec pcmanfm
 bindsym $mod+Shift+o exec emacs
 
 # Brightness ctl
-bindsym $mod+F7 exec "light -A 5"
-bindsym $mod+F6 exec "light -U 5"
-bindsym $mod+Shift+F7 exec "light -s sysfs/leds/chromeos::kbd_backlight -A 5"
-bindsym $mod+Shift+F6 exec "light -s sysfs/leds/chromeos::kbd_backlight -U 5"
-
-# Python terminal
-bindsym $mod+Shift+Return exec $TERMINAL python -q
+bindsym $mod+F9 exec "light -A 5"
+bindsym $mod+F8 exec "light -U 5"

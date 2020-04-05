@@ -10,12 +10,12 @@ info_bg = "#ad29c4"
 block = "disk_space"
 path = "/"
 alias = "/"
-info_type = "available"
+info_type = "used"
 unit = "GB"
 show_percentage = true
 interval = 20
-warning = 20.0
-alert = 10.0
+warning = -10.0
+alert = -9.0
 
 [[block]]
 block = "backlight"
@@ -57,12 +57,12 @@ chip = "*-isa-*"
 
 [[block]]
 block = "net"
-device = "wlp1s0"
+device = "wlp3s0"
 ssid = true
 signal_strength = true
 ip = true
 speed_up = false
-graph_up = true
+graph_up = false
 interval = 2
 use_bits = false
 

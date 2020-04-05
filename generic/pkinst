@@ -22,7 +22,7 @@ check_if_exists_in_file() {
 hostname=$(cat /etc/hostname)
 if [[ $hostname = rgboi ]]; then
 	pc_folder=arch-desktop
-elif [[ $hostname = x360 ]]; then
+elif [[ $hostname = thinking_abou_dis ]]; then
 	pc_folder=x360
 else
 	echo This PC\'s hostname was not recognised, has it changed?
@@ -44,15 +44,17 @@ else
 fi
 
 # If the package is not on the install list, add it
+pkg_list=""
 for arg in $packages; do
 	check_if_exists_in_file $package_file $arg
 	if [[ $? = 0 ]]; then
-		echo $arg >> $package_file
+		pkg_list+=$arg" "
 	fi
 done
 
+
 # regardless of whether a package is or isn't on the list, we install it anyway
-sudo pacman -S "$packages"
+sudo pacman -S "$pkg_list" && echo $pkg_list | sed 's/ /\n/g' >> $package_file
 
 
 

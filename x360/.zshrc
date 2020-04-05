@@ -127,6 +127,7 @@ alias p2='python2'
 alias steam='flatpak run com.valvesoftware.Steam'
 alias sshwork='ssh -X hamish@10.0.0.73'
 alias sshrgb='ssh -X hamish@10.0.0.67'
+alias pm='pulsemixer'
 
 
 # Remap Delete
@@ -136,7 +137,16 @@ xmodmap -e "keycode 191 = Delete"
 # Add to path
 path+='$HOME/.local/bin:$PATH'
 path+='/home/hamish/src/useful-scripts/generic'
+path+='/home/hamish/src/useful-scripts/x360'
 export PATH
+
+
+# This fixes forward delete in ST!!!
+# see http://zsh.sourceforge.net/FAQ/zshfaq03.html#l25 for more
+function zle-line-init () { echoti smkx }
+function zle-line-finish () { echoti rmkx }
+zle -N zle-line-init
+zle -N zle-line-finish
 
 
 ############
@@ -145,5 +155,4 @@ export PATH
 fortune -a
 # Newline
 echo
-
 

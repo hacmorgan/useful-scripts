@@ -28,18 +28,20 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
+ '(company-auto-complete (quote (quote company-explicit-action-p)))
+ '(company-statistics-mode t)
  '(custom-enabled-themes (quote (cyberpunk)))
  '(custom-safe-themes
    (quote
-	("1a232652b04b68380b1cff7ceeb62787b4eb43df826a97c67831c50b0c0d1451" default)))
+	("5adf7ad078568675387aac96e142c1300006531721bca35b941e4ed3e3b59000" "1a232652b04b68380b1cff7ceeb62787b4eb43df826a97c67831c50b0c0d1451" default)))
  '(display-line-numbers (quote relative))
  '(doc-view-continuous t)
  '(electric-pair-mode t)
- '(global-company-mode t)
+ '(global-company-mode nil)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil nil nil "Enables the menu bar")
  '(org-support-shift-select t)
- '(package-selected-packages (quote (company)))
+ '(package-selected-packages (quote (company-statistics company)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(vc-follow-symlinks t))
@@ -73,11 +75,18 @@
 (setq-default tab-width 4)
 (setq python-indent-tabs-mode t)
 
-
 ;; (add-hook 'org-mode-hook #'toggle-word-wrap)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
-;; use octave mode for all .m files
-(autoload 'octave-mode "octave-mod" nil t)
+;; open .m files in octave mode
 (setq auto-mode-alist
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
+
+;; This should allow M-[ to put brackets around highlighted text
+(global-set-key (kbd "M-[") 'insert-pair)
+
+
+
+
+
+

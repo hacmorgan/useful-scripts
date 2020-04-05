@@ -29,17 +29,14 @@ libnotify
 curl
 sqlite
 dlang
-libreoffice-fresh-en-au
 libreoffice-fresh-en-gb
 transmission-gtk
 flatpak
 ttf-dejavu
-ttf-powerline
 powerline
 powerline-fonts
 cmake
 ttf-font-awesome
-extra
 ncurses
 networkmanager
 grub
