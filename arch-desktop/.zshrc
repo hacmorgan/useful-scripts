@@ -79,7 +79,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -89,8 +89,8 @@ source $ZSH/oh-my-zsh.sh
 
 
 
-# Set numlock to be on
-numlockx &
+# Set numlock to be on 
+numlockx
 
 
 ###########
