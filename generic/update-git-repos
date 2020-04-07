@@ -2,9 +2,6 @@
 
 # Script to automatically pull code from all git repos, and commit and push any changes
 
-# If the -a flag is given, we will add all files in the repo
-if [[ $1 = "-a" ]]; then add=0; else add=1; fi
-
 # find which computer we are using
 hostname=$(cat /etc/hostname)
 if [[ $hostname = rgboi ]]; then
