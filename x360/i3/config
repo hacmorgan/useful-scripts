@@ -188,24 +188,6 @@ bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
 # BAR
-#bar {
-#        status_command i3status
-#                
-#        position top
-#	height 21
-#        colors {
-#        background #282A36
-#        statusline #F8F8F2
-#        separator  #44475A
-#
-#        focused_workspace  #aa34f7 #aa34f7 #F8F8F2
-#        active_workspace   #282A36 #44475A #F8F8F2
-#        inactive_workspace #282A36 #282A36 #BFBFBF
-#        urgent_workspace   #FF5555 #FF5555 #F8F8F2
-#        binding_mode       #FF5555 #FF5555 #F8F8F2
-#        }
-#}
-
 bar {
     font pango:DejaVu Sans Mono, FontAwesome 9
     position top
@@ -256,6 +238,9 @@ exec picom
 # Dunst (for notify-send)
 exec dunst
 
+# disable the touchpad
+exec "disableTouchpad true"
+
 
 ###############
 # KEYBINDINGS #
@@ -263,12 +248,14 @@ exec dunst
 # Firefox
 bindsym $mod+Shift+f exec firefox
 
+# qutebrowser
+bindsym $mod+Shift+s exec qutebrowser
+
 # File manager
 bindsym $mod+Shift+t exec pcmanfm
 
 # Emacs
 bindsym $mod+Shift+o exec emacs
 
-# Brightness ctl
-bindsym $mod+F9 exec "light -A 5"
-bindsym $mod+F8 exec "light -U 5"
+# disable touchpad
+bindsym $mod+F8 exec disableTouchpad

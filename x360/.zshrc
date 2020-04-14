@@ -127,6 +127,7 @@ alias p2='python2'
 alias steam='flatpak run com.valvesoftware.Steam'
 alias sshwork='ssh -X hamish@10.0.0.73'
 alias sshrgb='ssh -X hamish@10.0.0.67'
+alias sshome='ssh -X hamish@thinkingaboudis.zapto.org'
 alias pm='pulsemixer'
 
 
