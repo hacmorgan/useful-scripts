@@ -1,5 +1,5 @@
 # Make a simple prompt for dumb terminals (fixes emacs' problem logging into remotes with zsh)
-[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return7
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -114,4 +114,8 @@ alias pm='pulsemixer'
 ########
 path+=('/home/hamish/.local/bin')
 path+='/home/hamish/src/useful-scripts/generic'
+path+='/home/hamish/src/useful-scripts/arch-desktop'
 export PATH
+
+export MPD_HOST="localhost"
+export MPD_PORT="12007"

@@ -34,6 +34,7 @@
  '(display-line-numbers (quote relative))
  '(doc-view-continuous t)
  '(electric-pair-mode t)
+ '(global-auto-revert-mode t)
  '(global-company-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)

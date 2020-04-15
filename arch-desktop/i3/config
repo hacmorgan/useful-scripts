@@ -46,7 +46,7 @@ floating_modifier $mod
 # new terminal commands (standard, python, sshwork)
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+Shift+Return exec $TERMINAL python -q
-bindsym $mod+Ctrl+Return exec $TERMINAL ssh -X hamish@10.0.0.73
+bindsym $mod+Ctrl+Return exec $TERMINAL ssh -X hamish@work
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -252,17 +252,21 @@ bindsym $mod+Ctrl+Shift+Left move workspace to output left
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
 # Compton
-exec picom
+exec --no-startup-id picom
 
 ###############
 # KEYBINDINGS #
 ###############
 
 # Firefox
-bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+f exec --no-startup-id firefox
 
 # Emacs
-bindsym $mod+Shift+o exec emacs
+bindsym $mod+Shift+o exec --no-startup-id emacs
 
 # pcmanfm
-bindsym $mod+Shift+t exec pcmanfm
+bindsym $mod+Shift+t exec --no-startup-id pcmanfm
+
+# scrot
+bindsym --release $mod+Shift+s exec --no-startup-id "scrot -s -e 'mv $f /tmp/'"
+# N.B. the --release flag fixes some unresponsive keybindings
