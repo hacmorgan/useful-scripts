@@ -72,7 +72,6 @@
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
 ;; Autoload octave mode on .m files
-(autoload 'octave-mode "octave-mod" nil t)
 (setq auto-mode-alist
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
 
