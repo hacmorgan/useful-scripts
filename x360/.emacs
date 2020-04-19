@@ -37,7 +37,7 @@
  '(display-line-numbers (quote relative))
  '(doc-view-continuous t)
  '(electric-pair-mode t)
- '(global-company-mode nil)
+ '(global-company-mode t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil nil nil "Enables the menu bar")
  '(org-support-shift-select t)

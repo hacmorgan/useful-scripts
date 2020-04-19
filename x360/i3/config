@@ -248,9 +248,6 @@ exec "disableTouchpad true"
 # Firefox
 bindsym $mod+Shift+f exec firefox
 
-# qutebrowser
-bindsym $mod+Shift+s exec qutebrowser
-
 # File manager
 bindsym $mod+Shift+t exec pcmanfm
 
@@ -259,3 +256,6 @@ bindsym $mod+Shift+o exec emacs
 
 # disable touchpad
 bindsym $mod+F8 exec disableTouchpad
+
+# scrot
+bindsym --release $mod+Shift+s exec --no-startup-id "scrot -s -e 'mv $f /tmp/'"
