@@ -78,7 +78,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -145,7 +145,6 @@ alias oldvim=vim
 alias vim=nvim
 alias -g cdu='cd ~/src/useful-scripts/'
 alias tem='emacs -nw'
-alias em='emacs'
 alias sdn='shutdown now'
 alias rsn='shutdown -r now'
 alias p3='python3'
@@ -158,7 +157,11 @@ alias sshpi='ssh pi@10.137.5.169'
 xmodmap -e "keycode 191 = Delete"
 
 
-
+# Fix buggy forward delete behaviour over ssh
+function zle-line-init () { echoti smkx }
+function zle-line-finish () { echoti rmkx }
+zle -N zle-line-init
+zle -N zle-line-finish
 
 
 # ROS sourcing
@@ -167,7 +170,7 @@ source /opt/ros/melodic/setup.zsh # ROS install
 source ~/ros/catkin_ws/devel/setup.zsh # Abyss ROS 
 
 # Set the editor
-export EDITOR='emacs -nw'
+export EDITOR='nvim'
 
 ##############
 #    PATH    #

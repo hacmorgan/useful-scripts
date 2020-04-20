@@ -23,10 +23,12 @@ font pango:monospace 8
 
 
 # SET DEFAULT TERMINAL
-set $terminal st
+# set $terminal st
+set $terminal sakura
 
 # Pop up terminal with octave
-bindsym $mod+Shift+Return exec $terminal python3 -q
+# bindsym $mod+Shift+Return exec $terminal python3 -q
+bindsym $mod+Shift+Return exec $terminal -e "python3 -q"
 
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
