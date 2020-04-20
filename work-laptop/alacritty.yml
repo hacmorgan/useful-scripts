@@ -1,0 +1,10 @@
+# Font config
+font:
+	normal:
+		family: Droid Sans Mono
+		style: Regular
+		size: 10
+	bold:
+		family: Droid Sans Mono
+	italic:
+		family: Droid Sans Mono

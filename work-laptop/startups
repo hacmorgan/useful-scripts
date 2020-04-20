@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+# mount pond on Rhino
+OPTIONS=allow_other,reconnect
+sudo sshfs -o $OPTIONS hmo@10.137.4.2:/mnt/pond /mnt/pond
