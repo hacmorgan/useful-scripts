@@ -118,4 +118,4 @@ path+='/home/hamish/src/useful-scripts/arch-desktop'
 export PATH
 
 export MPD_HOST="localhost"
-export MPD_PORT="12007"
+export MPD_PORT="6600"

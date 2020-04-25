@@ -11,7 +11,7 @@
 
 set $mod Mod1
 
-set $TERMINAL st
+set $TERMINAL sakura
 
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -45,8 +45,8 @@ floating_modifier $mod
 
 # new terminal commands (standard, python, sshwork)
 bindsym $mod+Return exec $TERMINAL
-bindsym $mod+Shift+Return exec $TERMINAL python -q
-bindsym $mod+Ctrl+Return exec $TERMINAL ssh -X hamish@work
+bindsym $mod+Shift+Return exec $TERMINAL -e python -q
+bindsym $mod+Ctrl+Return exec $TERMINAL -e ssh -X hamish@work
 
 # kill focused window
 bindsym $mod+Shift+q kill

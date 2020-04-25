@@ -4,9 +4,17 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(setq use-package-always-pin  "melpa-stable")
 (package-initialize)
+
+;; Download use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; Reduce load time
+(eval-when-compile (require 'use-package))
 
 ;; Initialise evilmode
 (add-to-list 'load-path "~/.emacs.d/evil")
@@ -77,3 +85,29 @@
 
 ;; attempt to fix weird errors when ssh-ing using keys
 (setq tramp-shell-prompt-pattern "^[^$>\n]*[#$%>] *\\(\[[0-9;]*[a-zA-Z] *\\)*")
+
+;; emms
+(use-package emms
+  :ensure t
+  :config
+    (require 'emms-setup)
+    (require 'emms-player-mpd)
+    (emms-all) ; don't change this to values you see on stackoverflow questions if you expect emms to work
+    (setq emms-seek-seconds 5)
+    (setq emms-player-list '(emms-player-mpd))
+    (setq emms-info-functions '(emms-info-mpd))
+    (setq emms-player-mpd-server-name "localhost")
+    (setq emms-player-mpd-server-port "6600")
+    (setq emms-add-directory-tree "/mnt/storage/Music")
+  :bind
+    ("M-p p" . emms)
+    ("M-p b" . emms-smart-browse)
+    ("M-p r" . emms-player-mpd-update-all-reset-cache)
+    ("<XF86AudioPrev>" . emms-previous)
+    ("<XF86AudioNext>" . emms-next)
+    ("<XF86AudioPlay>" . emms-pause)
+    ("<XF86AudioStop>" . emms-stop))
+
+
+
+    
