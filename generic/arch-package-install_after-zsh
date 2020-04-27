@@ -16,56 +16,56 @@ else
 fi
 
 
-####################
-#    zsh themes    #
-####################
-# Make zsh custom stuff folder
-mkdir -p $ZSH_CUSTOM/themes
-# Install powerline theme
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-# Install syntax highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-# Install zsh autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# meslo fonts for powerline
-cd ~/src
-git clone https://aur.archlinux.org/nerd-fonts-meslo.git
-cd nerd-fonts-meslo
-makepkg -si
+function zsh_themes() {
+    ln -s /home/hamish/src/useful-scripts/$pc_folder/.zshrc /home/hamish/.zshrc
+    mkdir -p $ZSH_CUSTOM/themes
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+    ln -s /home/hamish/src/useful-scripts/$pc_folder/.p10k.zsh /home/hamish/.p10k.zsh
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    # meslo fonts for powerline
+    cd ~/src
+    git clone https://aur.archlinux.org/nerd-fonts-meslo.git
+    cd nerd-fonts-meslo
+    makepkg -si
+}
 
 
-############
-#    st    #
-############
-mkdir ~/src && cd ~/src
-git clone https://github.com/hacmorgan/st.git
-cd st
-sudo make clean install
+function sakura() {
+    sudo pacman -S sakura
+    ln -s /home/hamish/src/useful-scripts/generic/dots/sakura /home/hamish/.config/
+}
 
 
-#######################
-#    Emacs Plugins    #
-#######################
-git clone --depth 1 https://github.com/emacs-evil/evil ~/.emacs.d/evil
-git clone https://github.com/n3mo/cyberpunk-theme.el ~/.emacs.d/cyberpunk
-git clone https://code.orgmode.org/bzg/org-mode.git ~/.emacs.d/org
+function emacs() {
+    sudo pacman -S emacs
+    mkdir /home/hamish/.emacs.d
+    ln -s /home/hamish/src/useful-scripts/$pc_folder/.emacs /home/hamish/.emacs
+    git clone --depth 1 https://github.com/emacs-evil/evil ~/.emacs.d/evil
+    git clone https://github.com/n3mo/cyberpunk-theme.el ~/.emacs.d/cyberpunk
+    git clone https://code.orgmode.org/bzg/org-mode.git ~/.emacs.d/org
+}
+
+function neovim() {
+    sudo pacman -S nvim
+    ln -s /home/hamish/src/useful-scripts/generic/dots/nvim /home/hamish/.config/
+}
 
 
-####################
-#    i3-rounded    #
-####################
-cd ~/src
-git clone https://aur.archlinux.org/i3-gaps-rounded-git.git
-cd i3-gaps-rounded-git
-makepkg -si
+function i3() {
+    # clone and install i3-gaps-rounded from the AUR
+    cd ~/src
+    git clone https://aur.archlinux.org/i3-gaps-rounded-git.git
+    cd i3-gaps-rounded-git
+    makepkg -si
+    ln -s /home/hamish/src/useful-scripts/$pc_folder/i3 /home/hamish/.config/i3
 
-
-#######################
-#    i3status-rust    #
-#######################
-cd ~/src
-git clone https://aur.archlinux.org/i3status-rust.git
-cd i3status-rust
+    # clone and install i3status-rust
+    cd ~/src
+    git clone https://aur.archlinux.org/i3status-rust.git
+    cd i3status-rust
+    makepkg -si
+}
 
 
 # prepeare for symlinking configs
@@ -75,11 +75,6 @@ mkdir -p ~/.config/nvim
 
 # symlink configs
 echo Symlinking config files...
-ln -s /home/hamish/src/useful-scripts/$pc_folder/.zshrc /home/hamish/.zshrc
-ln -s /home/hamish/src/useful-scripts/$pc_folder/.p10k.zsh /home/hamish/.p10k.zsh
-ln -s /home/hamish/src/useful-scripts/$pc_folder/.emacs /home/hamish/.emacs
-ln -s /home/hamish/src/useful-scripts/$pc_folder/.vimrc /home/hamish/.config/nvim/init.vim
-ln -s /home/hamish/src/useful-scripts/$pc_folder/i3 /home/hamish/.config/i3
 ln -s /home/hamish/src/useful-scripts/$pc_folder/compton.conf /home/hamish/.config/picom.conf
 ln -s /home/hamish/src/useful-scripts/$pc_folder/.xinitrc /home/hamish/.xinitrc
 ln -s /home/hamish/src/useful-scripts/$pc_folder/.zprofile /home/hamish/.zprofile
