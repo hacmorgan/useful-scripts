@@ -280,14 +280,15 @@ bindsym $mod+F7 exec ~/src/useful-scripts/work-laptop/disableTouchpad
 # Make authentication windows pop up
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
+
 # Scratchpad terminal
 # https://faq.i3wm.org/question/2420/dropdown-terminal-in-i3/
 # Using a custom title string with criteria is deliberate and keeps things simple.
-exec --no-startup-id terminator -l KJ -T "Life"
-for_window [instance="terminator" title="Life"] floating enable, move scratchpad, scratchpad show;
-for_window [instance="terminator" title="Life"] resize grow left 300, resize grow right 300, resize grow down 150, resize grow up 100, move scratchpad;
+exec --no-startup-id sakura -e python3 -l KJ -T "Life"
+for_window [instance="sakura" title="Life"] floating enable, move scratchpad, scratchpad show;
+for_window [instance="sakura" title="Life"] resize grow left 300, resize grow right 300, resize grow down 150, resize grow up 100, move scratchpad;
 #bindsym Menu  [instance="terminator" title="Life"] scratchpad show
-bindsym $mod+Shift+a [instance="terminator" title="Life"] scratchpad show
+bindsym $mod+Shift+a [instance="sakura" title="Life"] scratchpad show
 
 
 # Script to start some applications
