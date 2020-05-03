@@ -68,6 +68,20 @@ function i3() {
 }
 
 
+function freeCAD()
+{
+	cd ~/src
+	mkdir freecad
+	cd freecad
+	aur_packages=( coin soqt med python-pivy freecad )
+	for package in $aur_packages; do
+		git clone https://aur.archlinux.org/$package.git
+		cd $package
+		makepkg -si
+		cd ..
+	done
+}
+
 # prepeare for symlinking configs
 if [ -f /home/hamish/.zshrc ]; then rm /home/hamish/.zshrc; fi
 if [ -f /home/hamish/.vimrc ]; then rm ~/.vimrc; fi
