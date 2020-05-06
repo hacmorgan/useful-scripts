@@ -15,8 +15,15 @@ else
 	exit 1
 fi
 
-# Make sure this script can be run from anywhere
-for f in $(cat $(dirname "$0")/../$pc_folder/git-repos.txt)
+# get absolute path of repo file
+repo_file=$(realpath $(dirname "$0")/../$pc_folder/git-repos.txt)
+
+# allow the script to be used to add a new repo
+if [ $1 = "--add" ]; then
+    echo $(realpath $2) >> $repo_file
+fi    
+
+for f in $(cat $repo_file)
 do
 	echo
 	echo Updating git repo: $f

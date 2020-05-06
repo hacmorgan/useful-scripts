@@ -3,3 +3,4 @@
 /home/hamish/src/projects/neural-networks
 /home/hamish/src/projects/machine-learning
 /home/hamish/src/projects/pelicomputer
+/home/hamish/src/projects/bravio
