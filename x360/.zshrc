@@ -144,6 +144,8 @@ path+='/home/hamish/src/useful-scripts/generic'
 path+='/home/hamish/src/useful-scripts/x360'
 export PATH
 
+# pythonstartup
+export PYTHONSTARTUP=/home/hamish/src/useful-scripts/generic/PYTHONSTARTUP
 
 # This fixes forward delete in ST!!!
 # see http://zsh.sourceforge.net/FAQ/zshfaq03.html#l25 for more
