@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# this is a basic script to allow name-value argument parsing
+# derived from comma-name-value-util https://gitlab.com/orthographic/comma
+
+# this script is deigned to be included in other scripts directly:
+# source $( type -p enzo-name-value-util )
+
+
+# TODO
+# - implement enzo-options-to-name-value/
+#   - split into list of name and field strings
+#     - replace all '='s with ' '
+#     - differentiate flags from arguments by presence of '-'
+#   - determine the full name if it's an abbreviated one (e.g. -h)
+#     - see if we can run all funcions matching a pattern, run *_options
+# - implement enzo-path-value-mangle
+# - 
+
+# check if this script has already been called in current shell
+# [[ -z "$enzo_command_line_parse_include_safeguard" ]] || return 0
+# readonly enzo_command_line_parse_include_safeguard=1
+
+function enzo-command-line-parse()
+{
+	# first check to see if the user has asked for help
+	if check-for-help "$@"; then
+		# we simply call the usage function, which we check is defined in the scipt invoking
+		[[ "$( type -t usage )" == "function" ]]  || die "I see you asked for help, but there is no usage function defined in this script"
+		usage
+		exit
+	fi
+
+	
+}
+
+
+function enzo-options-to-name-value()
+{
+	# firstly strip all '-'s and replace with '\n'
+	options=$( echo "$@" | sed 's/ --/\n/g;s/ -/\n/g;s/=/ /g' )
+	echo "$options"
+}
+
+enzo-options-to-name-value "$0 $@"
