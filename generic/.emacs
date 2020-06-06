@@ -50,7 +50,9 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil nil nil "Enables the menu bar")
- '(package-selected-packages (quote (magit haskell-mode ein markdown-mode company)))
+ '(package-selected-packages
+   (quote
+    (csv-mode magit haskell-mode ein markdown-mode company)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(vc-follow-symlinks t))

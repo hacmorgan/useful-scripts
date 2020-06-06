@@ -89,8 +89,6 @@ source $ZSH/oh-my-zsh.sh
 
 
 
-# Set numlock to be on 
-numlockx
 
 
 ###########
