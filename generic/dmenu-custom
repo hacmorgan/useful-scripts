@@ -1,0 +1,55 @@
+#!/bin/bash
+
+## This script is intended to be used with keybindings
+
+function settings-run ()
+{
+    function print-subsettings ()
+    {
+        subsetting_options="edit configs,\
+                            keyboard multiplier"
+        echo $subsetting_options | sed 's/,/\n/g'
+    }
+
+    function edit-configs-run ()
+    {
+        configs="zsh,i3,i3status,emacs,picom,sakura"
+        selected_config=$(echo $configs | sed 's/,/\n/g' | dmenu)
+        case "$selected_config" in
+            "zsh")
+                em ~/.zshrc ;;
+            "i3")
+                em ~/.config/i3/config ;;
+            "i3status")
+                em ~/.config/i3/status.toml ;;
+            "emacs")
+                em ~/.emacs.d/config.org ;;
+            "picom")
+                em ~/.config/picom.conf ;;
+            "sakura")
+                em ~/.config/sakura/sakura.conf ;;
+        esac
+    }
+    
+    subsetting="$( print-subsettings | dmenu )"
+    # subsetting=$(echo $subsetting_options | dmenu)
+    case "$subsetting" in
+        "edit configs")
+            edit-configs-run ;;
+    esac
+    
+}
+
+
+##############
+#    MAIN    #
+##############
+case "$1" in
+    settings)
+        settings-run ;;
+    scrot)
+        scrot-run ;;
+esac
+
+    
+# settings-run
