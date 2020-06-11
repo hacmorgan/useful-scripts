@@ -6,4 +6,4 @@
 file=$(realpath $1)
 echo $file
 
-emacs $file &!
+emacsclient -c $file &!

@@ -47,8 +47,9 @@
  '(global-company-mode t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil nil nil "Enables the menu bar")
- '(org-support-shift-select t)
- '(package-selected-packages (quote (emms use-package company-statistics company)))
+ '(package-selected-packages
+   (quote
+    (csv-mode magit haskell-mode ein markdown-mode company)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(vc-follow-symlinks t))
