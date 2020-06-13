@@ -262,11 +262,12 @@ exec --no-startup-id picom
 bindsym $mod+Shift+f exec --no-startup-id firefox
 
 # Emacs
-bindsym $mod+Shift+o exec --no-startup-id "emacsclient -c"
+bindsym $mod+Shift+o exec --no-startup-id "emacsclient -a '' -c"
 
 # pcmanfm
 bindsym $mod+Shift+t exec --no-startup-id pcmanfm
 
+bindsym --release $mod+Shift+s exec --no-startup-id "/home/hamish/src/useful-scripts/generic/dmenu-custom settings"
 # scrot
-bindsym --release $mod+Shift+s exec --no-startup-id "scrot -s -e 'mv $f /tmp/'"
+# bindsym --release $mod+Shift+s exec --no-startup-id "scrot -s -e 'mv $f /tmp/'"
 # N.B. the --release flag fixes some unresponsive keybindings

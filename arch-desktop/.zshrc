@@ -118,3 +118,6 @@ export PATH
 
 export MPD_HOST="localhost"
 export MPD_PORT="6600"
+
+# this should start emacs if the daemon is not already running
+export ALTERNATE_EDITOR=""

@@ -259,7 +259,7 @@ bindsym $mod+Shift+o exec emacsclient -c
 bindsym $mod+F8 exec disableTouchpad
 
 # dmenu-custom settings (from useful-scripts)
-bindsym --release $mod+Shift+s exec --no-startup-id "dmenu-custom settings"x
+bindsym --release $mod+Shift+s exec --no-startup-id "dmenu-custom settings"
 
 # scrot
 # bindsym --release $mod+Shift+s exec --no-startup-id "scrot -s -e 'mv $f /tmp/'"
