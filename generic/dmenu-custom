@@ -4,17 +4,10 @@
 
 function settings-run ()
 {
-    function print-subsettings ()
-    {
-        subsetting_options="edit configs,\
-                            keyboard multiplier"
-        echo $subsetting_options | sed 's/,/\n/g'
-    }
-
     function edit-configs-run ()
     {
-        configs="zsh,i3,i3status,emacs,picom,sakura"
-        selected_config=$(echo $configs | sed 's/,/\n/g' | dmenu)
+        local configs="zsh,i3,i3status,emacs,picom,sakura"
+        local selected_config=$(echo $configs | sed 's/,/\n/g' | dmenu)
         case "$selected_config" in
             "zsh")
                 em ~/.zshrc ;;
@@ -30,15 +23,60 @@ function settings-run ()
                 em ~/.config/sakura/sakura.conf ;;
         esac
     }
-    
-    subsetting="$( print-subsettings | dmenu )"
-    # subsetting=$(echo $subsetting_options | dmenu)
+
+    function screenshot-run()
+    {
+        local screenshot_types="select region,full screen,select region (delay),full screen (delay)"
+        local selected_type=$(echo "$screenshot_types" | sed 's/,/\n/g' | dmenu)
+        case "$selected_type" in
+            "select region")
+                scrot -s -e 'mv $f /tmp/' ;;
+            "full screen")
+                scrot -e 'mv $f /tmp/' ;;
+        esac
+    }
+
+    function keyboard-multiplier-run()
+    {
+        function select-delay()
+        {
+            local delays="150ms,250ms,500ms"
+            local selected_delay=$(echo $delays | sed 's/,/\n/g' | dmenu | sed 's/ms//g')
+            local current_rate=$(xset -q | grep delay | cut -d: -f3 | cut -d ' ' -f3)
+            xset r rate $selected_delay $current_rate
+        }
+        function select-rate()
+        {
+            local rates="25,50,100,200"
+            local selected_rate=$(echo $rates | sed 's/,/\n/g' | dmenu)
+            local current_delay=$(xset -q | grep delay | cut -d: -f2 | cut -d ' ' -f3)
+            xset r rate $current_delay $selected_rate
+        }
+        
+        local configurable_params="delay,rate"
+        local selected_param=$(echo "$configurable_params" | sed 's/,/\n/g' | dmenu)
+        case "$selected_param" in
+            "delay")
+                select-delay ;;
+            "rate")
+                select-rate ;;
+        esac
+    }
+       
+    subsetting_options="edit configs,keyboard multiplier,screenshot"
+    subsetting="$( echo $subsetting_options | sed 's/,/\n/g' | dmenu )"
     case "$subsetting" in
         "edit configs")
             edit-configs-run ;;
+        "keyboard multiplier")
+            keyboard-multiplier-run ;;
+        "screenshot")
+            screenshot-run ;;
     esac
     
 }
+
+
 
 
 ##############

@@ -53,7 +53,7 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -97,7 +97,7 @@ source $ZSH/oh-my-zsh.sh
 alias oldvim=vim
 alias vim=nvim
 alias -g cdu='cd ~/src/useful-scripts/'
-alias tem='emacs -nw'
+alias tem='emacsclient -nw'
 alias sdn='shutdown now'
 alias rsn='shutdown -r now'
 alias p3='python3'
