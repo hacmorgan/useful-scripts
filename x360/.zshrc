@@ -162,3 +162,4 @@ fortune -a
 # Newline
 echo
 
+export TERM=xterm-256color
