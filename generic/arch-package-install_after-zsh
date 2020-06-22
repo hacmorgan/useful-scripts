@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 
 # Script for continuing the install process once oh-my-zsh has been set up
@@ -7,52 +7,97 @@
 # find which computer we are using
 hostname=$(cat /etc/hostname)
 if [[ $hostname = rgboi ]]; then
-	pc_folder=arch-desktop
+    pc_folder=arch-desktop
 elif [[ $hostname = thinking_abou_dis ]]; then
-	pc_folder=x360
+    pc_folder=x360
+elif [[ $hostname = pelicomp ]]; then
+    pc_folder=pelicomp
 else
-	echo This PC\'s hostname was not recognised, has it changed?
-	exit 1
+    echo This PC\'s hostname was not recognised, has it changed?
+    exit 1
 fi
 
 
-function zsh_themes() {
+function ask_for_confirmation()
+{
+    echo "Set up $1? [y/N]"
+    read response
+    case "$response" in
+        "Y" | "y")
+            return 0 ;;
+        "" | "N" | "n")
+            return 1 ;;
+    esac
+}
+
+function make_folders()
+{
+    [[ -d ~/src/aur ]] || mkdir -p ~/src/aur
+    [[ -d ~/.config ]] || mkdir -p ~/.config
+}
+
+function zsh_() {
     ln -s /home/hamish/src/useful-scripts/$pc_folder/.zshrc /home/hamish/.zshrc
-    mkdir -p $ZSH_CUSTOM/themes
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+    echo $pc_folder
+    ln -s /home/hamish/src/useful-scripts/$pc_folder/.zprofile /home/hamish/.zprofile
+    mkdir -p /home/hamish/.oh-my-zsh/themes
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/hamish/.oh-my-zsh/themes/powerlevel10k
     ln -s /home/hamish/src/useful-scripts/$pc_folder/.p10k.zsh /home/hamish/.p10k.zsh
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     # meslo fonts for powerline
-    cd ~/src
+    cd ~/src/aur
     git clone https://aur.archlinux.org/nerd-fonts-meslo.git
     cd nerd-fonts-meslo
     makepkg -si
 }
 
+function x11_()
+{
+    pacman -Q xorg xorg-xinit 2>/dev/null || sudo pacman -S xorg xorg-xinit
+    ln -s /home/hamish/src/useful-scripts/$pc_folder/.xinitrc /home/hamish/.xinitrc
+}
 
-function sakura() {
-    sudo pacman -S sakura
+function picom_()
+{
+    pacman -Q picom 2>/dev/null || sudo pacman -S picom
+    ln -s /home/hamish/src/useful-scripts/$pc_folder/compton.conf /home/hamish/.config/picom.conf
+}
+
+function sakura_() 
+{
+    pacman -Q sakura 2>/dev/null || sudo pacman -S sakura
     ln -s /home/hamish/src/useful-scripts/generic/dots/sakura /home/hamish/.config/
 }
 
 
-function emacs() {
-    sudo pacman -S emacs
-    mkdir /home/hamish/.emacs.d
-    ln -s /home/hamish/src/useful-scripts/$pc_folder/.emacs /home/hamish/.emacs
-    git clone --depth 1 https://github.com/emacs-evil/evil ~/.emacs.d/evil
-    git clone https://github.com/n3mo/cyberpunk-theme.el ~/.emacs.d/cyberpunk
-    git clone https://code.orgmode.org/bzg/org-mode.git ~/.emacs.d/org
+function emacs_() 
+{
+    pacman -Q emacs 2>/dev/null || sudo pacman -S emacs
+    git clone git@github.com:hacmorgan/emacs.git /home/hamish/.emacs.d
 }
 
-function neovim() {
-    sudo pacman -S nvim
+function neovim_() 
+{
+    pacman -Q neovim 2>/dev/null || sudo pacman -S neovim
     ln -s /home/hamish/src/useful-scripts/generic/dots/nvim /home/hamish/.config/
 }
 
+function timesync_()
+{
+    sudo systemctl enable systemd-timesyncd.service
+    sudo systemctl start systemd-timesyncd.service
+}
 
-function i3() {
+function networkmanager_()
+{
+    pacman -Q networkmanager 2>/dev/null || sudo pacman -S networkmanager
+    sudo systemctl enable NetworkManager
+    sudo systemctl start NetworkManager
+}
+
+function i3_() 
+{
     # clone and install i3-gaps-rounded from the AUR
     cd ~/src
     git clone https://aur.archlinux.org/i3-gaps-rounded-git.git
@@ -67,48 +112,55 @@ function i3() {
     makepkg -si
 }
 
-
-function freeCAD()
+function freeCAD_()
 {
-	cd ~/src
-	mkdir freecad
-	cd freecad
-	aur_packages=( coin soqt med python-pivy freecad )
-	for package in $aur_packages; do
-		git clone https://aur.archlinux.org/$package.git
-		cd $package
-		makepkg -si
-		cd ..
-	done
+    cd ~/src
+    mkdir freecad
+    cd freecad
+    aur_packages=( coin soqt med python-pivy freecad )
+    for package in $aur_packages; do
+        git clone https://aur.archlinux.org/$package.git
+        cd $package
+        makepkg -si
+        cd ..
+    done
 }
 
-# prepeare for symlinking configs
-if [ -f /home/hamish/.zshrc ]; then rm /home/hamish/.zshrc; fi
-if [ -f /home/hamish/.vimrc ]; then rm ~/.vimrc; fi
-mkdir -p ~/.config/nvim
 
-# symlink configs
-echo Symlinking config files...
-ln -s /home/hamish/src/useful-scripts/$pc_folder/compton.conf /home/hamish/.config/picom.conf
-ln -s /home/hamish/src/useful-scripts/$pc_folder/.xinitrc /home/hamish/.xinitrc
-ln -s /home/hamish/src/useful-scripts/$pc_folder/.zprofile /home/hamish/.zprofile
+function platform-specific()
+{
+    if (( pc_folder = pelicomp )); then
+        pacman -Q xf86-video-fbdev make gcc pkg-config 2>/dev/null || sudo pacman -S xf86-video-fbdev make gcc pkg-config
+        printf "\nIMPORTANT\n\nI WILL NOT COPY MY TEMPLATE BOOT CONFIG FOR SAFETY.\nPLEASE INSPECT IT AND ADD ANYTHING RELEVANT TO /boot/config.txt\n\n"
+    fi
+}
 
-# Enable system time synchronisation
-sudo systemctl enable systemd-timesyncd.service
-sudo systemctl start systemd-timesyncd.service
 
-# Enable NetworkManager
-sudo systemctl enable NetworkManager
-sudo systemctl start NetworkManager
+make_folders
+ask_for_confirmation "zsh" && zsh_
+ask_for_confirmation "x11" && x11_
+ask_for_confirmation "picom" && picom_
+ask_for_confirmation "sakura" && sakura_
+ask_for_confirmation "emacs" && emacs_
+ask_for_confirmation "neovim" && neovim_
+ask_for_confirmation "timesync" && timesync_
+ask_for_confirmation "networkmanager" && networkmanager_
+ask_for_confirmation "i3" && i3_
+ask_for_confirmation "freeCAD" && freeCAD_
 
-################################
-#    DEVICE SPECIFIC THINGS    #
-################################
-if [[ $pc_folder = x360 ]]; then
-	# Handle lid closing with systemd
-	sudo mv /etc/systemd/logind.conf /etc/systemd/logind.conf
-	sudo ln -s /home/hamish/src/useful-scripts/x360/logind.conf /etc/systemd/logind.conf
 
-	# Set up libinput
-	sudo ln -s /home/hamish/src/useful-scripts/x360/40-libinput.conf /etc/X11/xorg.conf.d/40-libinput.conf
-fi
+
+
+
+
+#################################
+##    DEVICE SPECIFIC THINGS    #
+#################################
+#if [[ $pc_folder = x360 ]]; then
+#    # Handle lid closing with systemd
+#    sudo mv /etc/systemd/logind.conf /etc/systemd/logind.conf
+#    sudo ln -s /home/hamish/src/useful-scripts/x360/logind.conf /etc/systemd/logind.conf
+#
+#    # Set up libinput
+#    sudo ln -s /home/hamish/src/useful-scripts/x360/40-libinput.conf /etc/X11/xorg.conf.d/40-libinput.conf
+#fi
