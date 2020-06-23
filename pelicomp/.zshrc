@@ -124,3 +124,6 @@ export ALTERNATE_EDITOR=""
 
 #c_include_path+='/usr/include/freetype2'
 export C_INCLUDE_PATH="/usr/include/freetype2"
+
+# makes QT5+ applications honour DPI settings
+export QT_AUTO_SCREEN_SCALE_FACTOR=1

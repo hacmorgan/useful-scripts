@@ -18,7 +18,7 @@ else
 fi
 
 
-function ask_for_confirmation()
+function ask_()
 {
     echo "Set up $1? [y/N]"
     read response
@@ -54,8 +54,9 @@ function zsh_() {
 
 function x11_()
 {
-    pacman -Q xorg xorg-xinit 2>/dev/null || sudo pacman -S xorg xorg-xinit
+    pacman -Q xorg xorg-xinit numlockx 2>/dev/null || sudo pacman -S xorg xorg-xinit numlockx
     ln -s /home/hamish/src/useful-scripts/$pc_folder/.xinitrc /home/hamish/.xinitrc
+    ln -s /home/hamish/src/useful-scripts/$pc_folder/.Xresources /home/hamish/.Xresources
 }
 
 function picom_()
@@ -70,10 +71,16 @@ function sakura_()
     ln -s /home/hamish/src/useful-scripts/generic/dots/sakura /home/hamish/.config/
 }
 
+function fonts_()
+{
+    pacman -Q ttf-fantasque-sans-mono ttf-font-awesome || sudo pacman -S ttf-fantasque-sans-mono ttf-font-awesome
+}
+
 
 function emacs_() 
 {
-    pacman -Q emacs 2>/dev/null || sudo pacman -S emacs
+    # ghostscript required for docview
+    pacman -Q emacs ghostscript 2>/dev/null || sudo pacman -S emacs ghostscript
     git clone git@github.com:hacmorgan/emacs.git /home/hamish/.emacs.d
 }
 
@@ -137,17 +144,18 @@ function platform-specific()
 
 
 make_folders
-ask_for_confirmation "zsh" && zsh_
-ask_for_confirmation "x11" && x11_
-ask_for_confirmation "picom" && picom_
-ask_for_confirmation "sakura" && sakura_
-ask_for_confirmation "emacs" && emacs_
-ask_for_confirmation "neovim" && neovim_
-ask_for_confirmation "timesync" && timesync_
-ask_for_confirmation "networkmanager" && networkmanager_
-ask_for_confirmation "i3" && i3_
-ask_for_confirmation "freeCAD" && freeCAD_
-
+ask_ "zsh"                         && zsh_
+ask_ "x11"                         && x11_
+ask_ "picom"                       && picom_
+ask_ "sakura"                      && sakura_
+ask_ "fonts"                       && fonts_
+ask_ "emacs"                       && emacs_
+ask_ "neovim"                      && neovim_
+ask_ "timesync"                    && timesync_
+ask_ "networkmanager"              && networkmanager_
+ask_ "i3"                          && i3_
+ask_ "freeCAD"                     && freeCAD_
+ask_ "platform specific utilities" && platform_specific
 
 
 
