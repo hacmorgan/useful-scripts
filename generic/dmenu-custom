@@ -10,17 +10,17 @@ function settings-run ()
         local selected_config=$(echo $configs | sed 's/,/\n/g' | dmenu)
         case "$selected_config" in
             "zsh")
-                em ~/.zshrc ;;
+                /home/hamish/src/useful-scripts/generic/em ~/.zshrc ;;
             "i3")
-                em ~/.config/i3/config ;;
+                /home/hamish/src/useful-scripts/generic/em ~/.config/i3/config ;;
             "i3status")
-                em ~/.config/i3/status.toml ;;
+                /home/hamish/src/useful-scripts/generic/em ~/.config/i3/status.toml ;;
             "emacs")
-                em ~/.emacs.d/config.org ;;
+                /home/hamish/src/useful-scripts/generic/em ~/.emacs.d/config.org ;;
             "picom")
-                em ~/.config/picom.conf ;;
+                /home/hamish/src/useful-scripts/generic/em ~/.config/picom.conf ;;
             "sakura")
-                em ~/.config/sakura/sakura.conf ;;
+                /home/hamish/src/useful-scripts/generic/em ~/.config/sakura/sakura.conf ;;
         esac
     }
 
