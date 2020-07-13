@@ -112,7 +112,7 @@ alias pm='pulsemixer'
 ########
 path+=('/home/hamish/.local/bin')
 path+='/home/hamish/src/useful-scripts/generic'
-path+='/home/hamish/src/useful-scripts/arch-desktop'
+path+='/home/hamish/src/useful-scripts/pelicomp'
 path+='/home/hamish/.gem/ruby/2.7.0/bin'
 export PATH
 

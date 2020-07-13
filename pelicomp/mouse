@@ -1,0 +1,44 @@
+#!/usr/bin/env python
+
+import serial
+from pynput.mouse import Button, Controller
+
+ser = serial.Serial("/dev/ttyUSB0", 9600)
+ser.baudrate = 9600
+
+mouse = Controller()
+
+state = ['0', '0', '0']
+
+
+while True:
+    read_ser = ser.readline()
+    try:
+        values = str(read_ser, "utf-8").strip().split(',')
+    except UnicodeDecodeError:
+        continue
+    print(values)
+
+    if values[0] != state[0]:
+        if values[0] == '1':
+            state[0] = '1'
+            mouse.press ( Button.left )
+        else:
+            state[0] = '0'
+            mouse.release ( Button.left )
+    if values[1] != state[1]:
+        if values[1] == '1':
+            state[1] = '1'
+            mouse.press ( Button.middle )
+        else:
+            state[1] = '0'
+            mouse.release ( Button.middle )
+    if values[2] != state[2]:
+        if values[2] == '1':
+            state[2] = '1'
+            mouse.press ( Button.right )
+        else:
+            state[2] = '0'
+            mouse.release ( Button.right )
+            
+
