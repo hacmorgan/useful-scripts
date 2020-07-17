@@ -52,7 +52,7 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -151,10 +151,6 @@ alias p3='python3'
 alias mnt_pond='abyss-mount-share hmo rhino-pond /mnt/pond'
 alias mnt_tank='abyss-mount-share hmo rhino-tank /mnt/tank'
 alias sshpi='ssh pi@10.137.5.169'
-
-	
-# Remap Delete
-xmodmap -e "keycode 191 = Delete"
 
 
 # Fix buggy forward delete behaviour over ssh

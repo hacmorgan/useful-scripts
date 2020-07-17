@@ -264,7 +264,7 @@ bindsym $mod+Ctrl+Shift+Left move workspace to output left
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
 # Set background
-exec_always --no-startup-id "feh --bg-center ~/Pictures/Wallpapers/eboy.png"
+exec_always --no-startup-id "feh --bg-center ~/src/useful-scripts/work-laptop/wallpapers/eboy.png"
 
 # emacs
 bindsym $mod+Shift+o exec emacs
