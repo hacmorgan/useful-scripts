@@ -62,8 +62,20 @@ function settings-run ()
                 select-rate ;;
         esac
     }
+
+    function picom-run()
+    {
+        local picom_options="turn on,turn off"
+        local selected_option=$(echo $picom_options | sed 's/,/\n/g' | dmenu)
+        case "$selected_option" in
+            "turn on")
+                [ $(ps -aux | grep picom | wc -l) -le 1 ] && exec picom ;;
+            "turn off")
+                killall picom ;;
+        esac
+    }
        
-    subsetting_options="edit configs,keyboard multiplier,screenshot"
+    subsetting_options="edit configs,keyboard multiplier,screenshot,picom"
     subsetting="$( echo $subsetting_options | sed 's/,/\n/g' | dmenu )"
     case "$subsetting" in
         "edit configs")
@@ -72,6 +84,8 @@ function settings-run ()
             keyboard-multiplier-run ;;
         "screenshot")
             screenshot-run ;;
+        "picom")
+            picom-run ;;
     esac
     
 }
@@ -82,12 +96,12 @@ function settings-run ()
 ##############
 #    MAIN    #
 ##############
-case "$1" in
-    settings)
-        settings-run ;;
-    scrot)
-        scrot-run ;;
-esac
+# case "$1" in
+#     settings)
+#         settings-run ;;
+#     scrot)
+#         scrot-run ;;
+# esac
 
     
-# settings-run
+settings-run

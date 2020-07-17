@@ -35,7 +35,7 @@ format = "{min}° min, {max}° max, {average}° avg"
 
 [[block]]
 block = "net"
-device = "enp4s0"
+device = "wlp1s0"
 ssid = true
 signal_strength = true
 ip = true
@@ -53,6 +53,11 @@ format_up_to_date = "system up to date"
 
 [[block]]
 block = "sound"
+
+[[block]]
+block = "custom"
+command = "cat /home/hamish/scratch/.battery_level"
+interval = 10
 
 [[block]]
 block = "time"
