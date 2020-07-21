@@ -1,0 +1,31 @@
+Host work
+     User hamish
+     HostName 10.0.0.73
+
+Host thinkpad
+     User hamish
+     HostName 10.0.0.80 
+
+Host pi
+     User hamish
+     HostName 10.0.0.84
+    
+Host processor
+	User processor
+	HostName 10.0.0.86
+
+Host cse
+    User z5115698
+    Hostname cse.unsw.edu.au
+
+Host freebsd
+    User hamish
+    Hostname 10.0.0.83
+
+Host rgb
+    User hamish
+    Hostname 10.0.0.67
+
+Host rgb_remote
+    User hamish
+    Hostname thinkingaboudis.zapto.org

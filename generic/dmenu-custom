@@ -6,7 +6,8 @@ function settings-run ()
 {
     function edit-configs-run ()
     {
-        local configs="zsh,i3,i3status,emacs,picom,sakura"
+        # local configs="zsh,i3,i3status,emacs,picom,sakura"
+        local configs="zsh,dwm,emacs,picom,st,xinit"
         local selected_config=$(echo $configs | sed 's/,/\n/g' | dmenu)
         case "$selected_config" in
             "zsh")
@@ -15,12 +16,18 @@ function settings-run ()
                 /home/hamish/src/useful-scripts/generic/em ~/.config/i3/config ;;
             "i3status")
                 /home/hamish/src/useful-scripts/generic/em ~/.config/i3/status.toml ;;
+            "dwm")
+                /home/hamish/src/useful-scripts/generic/em ~/src/foss/dwm/config.h ;;
             "emacs")
                 /home/hamish/src/useful-scripts/generic/em ~/.emacs.d/config.org ;;
             "picom")
                 /home/hamish/src/useful-scripts/generic/em ~/.config/picom.conf ;;
             "sakura")
                 /home/hamish/src/useful-scripts/generic/em ~/.config/sakura/sakura.conf ;;
+            "st")
+                /home/hamish/src/useful-scripts/generic/em ~/src/foss/st/config.h ;;
+            "xinit")
+                /home/hamish/src/useful-scripts/generic/em ~/.xinitrc ;;
         esac
     }
 

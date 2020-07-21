@@ -31,7 +31,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -42,8 +42,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# new terminal commands (standard, python, sshwork)
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -202,9 +200,10 @@ bindsym $mod+Ctrl+Up resize grow height 5px
 #        }
 #}
 bar {
-    font pango:Fantasque Sans Mono 10
+    font pango:Fantasque Sans Mono 10.5
+#	font pango:DejaVu Sans Mono, FontAwesome 12
     position top
-    status_command /usr/bin/i3status-rs /home/hamish/.config/i3/status.toml
+    status_command /home/hamish/src/foss/i3status-rust/target/release/i3status-rs /home/hamish/.config/i3/status.toml
     colors {
         separator #666666
         background #222222
@@ -218,7 +217,7 @@ bar {
 
 gaps inner 12
 gaps outer 1
-gaps top -2
+#gaps top -2
 smart_gaps on
 smart_borders on
 bindsym $mod+Shift+g mode "$mode_gaps"
@@ -255,7 +254,7 @@ bindsym $mod+Ctrl+Shift+Right move workspace to output right
 # terminal
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+Shift+Return exec $TERMINAL -e python -q
-bindsym $mod+Ctrl+Return exec $TERMINAL -e ssh -X rgb
+bindsym $mod+Ctrl+Return exec $TERMINAL -e "ip a | grep 10.0.0.97 && ssh rgb || ssh rgb_remote"
 
 # Firefox
 bindsym $mod+Shift+f exec --no-startup-id firefox
