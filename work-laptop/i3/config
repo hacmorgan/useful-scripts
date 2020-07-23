@@ -24,7 +24,7 @@ font pango:monospace 8
 
 # SET DEFAULT TERMINAL
 # set $terminal st
-set $terminal sakura
+set $terminal st
 
 # Pop up terminal with octave
 # bindsym $mod+Shift+Return exec $terminal python3 -q
