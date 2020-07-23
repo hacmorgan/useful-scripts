@@ -38,7 +38,7 @@ fi
 #############################
 
 # set default cursor (Xmonad doesn't do this by default)
-xsetroot -cursor_name crosshair
+#xsetroot -cursor_name crosshair
 
 # turn numlock on
 numlockx &
@@ -56,7 +56,9 @@ emacs --daemon &
 picom &!
 
 # set desktop background
-feh --bg-center ~/src/useful-scripts/pelicomp/wallpapers/valley.jpg 
+feh --bg-center ~/src/useful-scripts/pelicomp/wallpapers/eboy_big.png
 
+# set the dwm status bar in motion
+~/src/foss/dwm/dwmbar &!
 
-exec i3
+exec dwm

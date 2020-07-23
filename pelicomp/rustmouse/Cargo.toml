@@ -1,0 +1,11 @@
+[package]
+name = "rustmouse"
+version = "0.1.0"
+authors = ["hacmorgan <ham430@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+enigo = "0.0.14"
+serialport = "3.3.0"

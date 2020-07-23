@@ -1,10 +1,12 @@
 #theme = "slick"
-icons = "awesome"
+icons = "awesome5"
 
 [theme]
 name = "slick"
+
 [theme.overrides]
 info_bg = "#ad29c4"
+separator = ""
 
 [[block]]
 block = "disk_space"
@@ -44,12 +46,12 @@ graph_up = true
 interval = 1
 use_bits = false
 
-[[block]]
-block = "pacman"
-interval = 10
-format = "{count} updates available"
-format_singular = "{count} update available"
-format_up_to_date = "system up to date"
+#[[block]]
+#block = "pacman"
+#interval = 10
+#format = "{count} updates available"
+#format_singular = "{count} update available"
+#format_up_to_date = "system up to date"
 
 [[block]]
 block = "sound"

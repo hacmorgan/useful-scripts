@@ -2,11 +2,24 @@
 
 ## This script is intended to be used with keybindings
 
-function settings-run ()
+function main-run ()
 {
+    function power-run()
+    {
+        local options="shut down,reboot"
+        local selected_option=$(echo "$options" | sed 's/,/\n/g' | dmenu)
+        case "$selected_option" in
+            "shut down")
+                sudo shutdown -P now ;;
+            "reboot")
+                sudo reboot ;;
+        esac
+    }
+    
     function edit-configs-run ()
     {
-        local configs="zsh,i3,i3status,emacs,picom,sakura"
+        # local configs="zsh,i3,i3status,emacs,picom,sakura"
+        local configs="zsh,dwm,emacs,picom,st,xinit"
         local selected_config=$(echo $configs | sed 's/,/\n/g' | dmenu)
         case "$selected_config" in
             "zsh")
@@ -15,12 +28,18 @@ function settings-run ()
                 /home/hamish/src/useful-scripts/generic/em ~/.config/i3/config ;;
             "i3status")
                 /home/hamish/src/useful-scripts/generic/em ~/.config/i3/status.toml ;;
+            "dwm")
+                /home/hamish/src/useful-scripts/generic/em ~/src/foss/dwm/config.h ;;
             "emacs")
                 /home/hamish/src/useful-scripts/generic/em ~/.emacs.d/config.org ;;
             "picom")
                 /home/hamish/src/useful-scripts/generic/em ~/.config/picom.conf ;;
             "sakura")
                 /home/hamish/src/useful-scripts/generic/em ~/.config/sakura/sakura.conf ;;
+            "st")
+                /home/hamish/src/useful-scripts/generic/em ~/src/foss/st/config.h ;;
+            "xinit")
+                /home/hamish/src/useful-scripts/generic/em ~/.xinitrc ;;
         esac
     }
 
@@ -75,9 +94,11 @@ function settings-run ()
         esac
     }
        
-    subsetting_options="edit configs,keyboard multiplier,screenshot,picom"
+    subsetting_options="power,edit configs,keyboard multiplier,screenshot,picom"
     subsetting="$( echo $subsetting_options | sed 's/,/\n/g' | dmenu )"
     case "$subsetting" in
+        "power")
+            power-run ;;
         "edit configs")
             edit-configs-run ;;
         "keyboard multiplier")
@@ -91,17 +112,4 @@ function settings-run ()
 }
 
 
-
-
-##############
-#    MAIN    #
-##############
-# case "$1" in
-#     settings)
-#         settings-run ;;
-#     scrot)
-#         scrot-run ;;
-# esac
-
-    
-settings-run
+main-run
