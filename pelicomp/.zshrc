@@ -89,6 +89,12 @@ source $ZSH/oh-my-zsh.sh
 
 
 
+##################################
+# FIX DELETE KEY BEHAVIOUR IN ST #
+##################################
+typeset -g -A key
+key[Delete]="${terminfo[kdch1]}"
+[[ -n "${key[Delete]}"   ]]  && bindkey  "${key[Delete]}"   delete-char
 
 
 ###########
@@ -116,6 +122,8 @@ path+='/home/hamish/src/useful-scripts/pelicomp'
 path+='/home/hamish/.gem/ruby/2.7.0/bin'
 export PATH
 
+
+# MPD
 export MPD_HOST="localhost"
 export MPD_PORT="6600"
 
@@ -127,3 +135,4 @@ export C_INCLUDE_PATH="/usr/include/freetype2"
 
 # makes QT5+ applications honour DPI settings
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"

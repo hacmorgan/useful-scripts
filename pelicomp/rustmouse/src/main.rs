@@ -1,5 +1,6 @@
 use enigo::{Enigo, MouseButton, MouseControllable};
 use std::thread;
+use std::io::{self, Write};
 use std::time::Duration;
 use serialport::posix::TTYPort;
 
@@ -10,7 +11,6 @@ use serialport::posix::TTYPort;
 - pkg-config
 - libudev
  */
-requires xdotool installed on system
 
 fn main() {
     /* EXAMPLE ENIGO CODE
@@ -48,4 +48,11 @@ fn main() {
     // read from port
     let mut serial_buf: Vec<u8> = vec![0; 32];
     port.read(serial_buf.as_mut_slice()).expect("Found no data!");
+    loop {
+        match port.read(serial_buf.as_mut_slice()) {
+            Ok(t) => io::stdout().write_all(&serial_buf[..t]).unwrap(),
+            Err(ref e) if e.kind() == io::ErrorKind::TimedOut => (),
+            Err(e) => eprintln!("{:?}", e),
+        }
+    }
 }

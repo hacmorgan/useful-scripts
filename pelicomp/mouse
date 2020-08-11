@@ -17,107 +17,83 @@ mouse = Controller()
 # how many pixels of movement correlate to one scroll bump
 scroll_multiplier = 0.1
 
-# state variables
-state = ['0', '0', '0']
-
 # scroll control variables
 global start_pos 
-global start_time 
-global last_pos 
-global scroll_delta 
-global scroll_bumps 
 start_pos = None
+global start_time 
 start_time = None
+global last_pos 
 last_pos = None
+global scroll_delta 
 scroll_delta = np.array((0.0, 0.0))
+global scroll_bumps
 scroll_bumps = np.array((0, 0))
+global is_scrolling
+is_scrolling = False
 
 # battery monitoring
-global last_battery_update
-global wma_battery 
-last_battery_update = 0
-wma_battery = None
 battery_percentage_file = "/home/hamish/scratch/.battery_level"
 
 
 def read_serial(verbose=False):
     read_ser = ser.readline()
     try:
-        values = str(read_ser, "utf-8").strip().split(',')
+        message = str(read_ser, "utf-8").strip()
     except UnicodeDecodeError:
         return -1
     if verbose == True:
-        print(values)
-    return values
+        print(message)
+    return message
 
 
-def handle_mouse(values):
+def handle_mouse(message):
     global start_pos 
     global start_time 
     global last_pos 
     global scroll_delta 
-    global scroll_bumps 
-    if values[0] != state[0]:
-        if values[0] == '1':
-            state[0] = '1'
-            mouse.press ( Button.left )
-        else:
-            state[0] = '0'
-            mouse.release ( Button.left )
-    if values[1] != state[1]:
-        if values[1] == '1':
-            state[1] = '1'
-            start_pos = mouse.position
-            start_time = time.time()
-            last_pos = mouse.position
-        else:
-            state[1] = '0'
-            if time.time() - start_time < 0.5:
-                mouse.press ( Button.middle )
-                mouse.release ( Button.middle )
-            mouse.position = start_pos
-            start_pos = None
-            scroll_delta = np.array((0.0, 0.0))
-    else:
-        if values[1] == '1':
-            scroll_delta += (np.array( mouse.position ) - np.array( last_pos )) * 0.1
-            last_pos = mouse.position
-            # mouse.position = start_pos
-            scroll_bumps = scroll_delta.astype(int)
-            scroll_delta -= scroll_bumps
-            if scroll_bumps.any():
-                mouse.scroll( scroll_bumps[0], -scroll_bumps[1] )
-    if values[2] != state[2]:
-        if values[2] == '1':
-            state[2] = '1'
-            mouse.press ( Button.right )
-        else:
-            state[2] = '0'
-            mouse.release ( Button.right )
+    global scroll_bumps
+    global is_scrolling
+
+    if message == "scr":
+        scroll_delta += (np.array( mouse.position ) - np.array( last_pos )) * scroll_multiplier
+        last_pos = mouse.position
+        scroll_bumps = scroll_delta.astype(int)
+        scroll_delta -= scroll_bumps
+        if scroll_bumps.any():
+            mouse.scroll( -scroll_bumps[0], scroll_bumps[1] )
+    elif message == "11":
+        mouse.press ( Button.left )
+    elif message == "10":
+        mouse.release ( Button.left )
+    elif message == "21":
+        mouse.press ( Button.right )
+    elif message == "20":
+        mouse.release ( Button.right )
+    elif message == "31":
+        is_scrolling = True
+        start_pos = mouse.position
+        start_time = time.time()
+        last_pos = mouse.position
+    elif message == "30":
+        if time.time() - start_time < 0.5:
+            mouse.press ( Button.middle )
+            mouse.release ( Button.middle )
+        mouse.position = start_pos
+        start_pos = None
+        scroll_delta = np.array((0.0, 0.0))
+    elif message[0] == 'b':
+        update_battery(message[1:])
     
 
-def update_battery( measured_voltage ):
-    global last_battery_update
-    global wma_battery
-    percentage = ( float(measured_voltage) - 625 ) / 1.6
-    if wma_battery is None:
-        wma_battery = percentage
-    else:
-        wma_battery = 0.9 * wma_battery + 0.1 * percentage
-    if time.time() - last_battery_update > 10:
-        with open( battery_percentage_file, 'w') as battfile:
-            battfile.write( str( round( min( wma_battery, 100 ), 2 ) ) )
-        last_battery_update = time.time()
+def update_battery( wma_voltage ):
+    percentage = ( float(wma_voltage) - 625 ) / 1.6
+    with open( battery_percentage_file, 'w') as battfile:
+        battfile.write( str( round( min( percentage, 100 ), 2 ) ) )
     
     
 while True:
-    values = read_serial()
-    if values == -1:
+    message = read_serial(verbose=True)
+    if message == -1:
         continue
 
-    handle_mouse(values)
-    
-    update_battery(values[4])
-        
-            
-
+    handle_mouse(message)
