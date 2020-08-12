@@ -205,7 +205,7 @@ bindsym $mod+Ctrl+Up resize grow height 5px
 #        }
 #}
 bar {
-    font pango:DejaVu Sans Mono, FontAwesome 10
+    font pango:Fantasque Sans Mono, FontAwesome 12.9
     position top
     status_command /usr/bin/i3status-rs /home/hamish/.config/i3/status.toml
     colors {
@@ -221,11 +221,11 @@ bar {
 
 gaps inner 12
 gaps outer 1
-gaps top -2
+#gaps top -2
 smart_gaps on
 smart_borders on
 bindsym $mod+Shift+g mode "$mode_gaps"
-border_radius 5
+# border_radius 5
 
 
 #class                 border  bground text    indicator child_border
@@ -238,14 +238,8 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
 # Turn window borders off
-hide_edge_borders both
-default_border pixel 0
-
-# Set up displays
-exec --no-startup-id xrandr --output HDMI-1 --primary --right-of DP-2
-
-# Desktop backgrounds
-exec --no-startup-id feh --bg-center ~/src/useful-scripts/arch-desktop/eboy_ny.png --bg-center ~/src/useful-scripts/arch-desktop/eboy_tok.png
+# hide_edge_borders both
+default_border pixel 2
 
 # Move workspaces between screens
 bindsym $mod+Ctrl+Shift+Left move workspace to output left

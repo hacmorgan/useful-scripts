@@ -5,6 +5,7 @@ icons = "awesome"
 name = "slick"
 [theme.overrides]
 info_bg = "#ad29c4"
+separator = "" # seeing as the powerline glyph didn't work properly
 
 [[block]]
 block = "disk_space"
