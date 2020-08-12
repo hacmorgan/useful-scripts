@@ -13,7 +13,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/hamish/.oh-my-zsh"
+export ZSH="/home/users/hmo/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -90,9 +90,9 @@ source $ZSH/oh-my-zsh.sh
 
 
 
-###########
-# ALIASES #
-###########
+#################
+#    ALIASES    #
+#################
 alias oldvim=vim
 alias vim=nvim
 alias -g cdu='cd ~/src/useful-scripts/'
@@ -102,17 +102,17 @@ alias rsn='shutdown -r now'
 alias p3='python3'
 alias p2='python2'
 alias sshpi='ssh -Y pi@10.0.0.75'
-alias sshwork='ssh -Y hamish@10.0.0.73'
+alias sshwork='ssh -Y users/hmo@10.0.0.73'
 alias pm='pulsemixer'
+alias tm='tmux attach || tmux'
+alias datasets2processed="pwd | sed 's/datasets/processed/g'"
+alias processed2datasets="pwd | sed 's/processed/datasets/g'"
 
 
-########
-# PATH #
-########
-path+=('/home/hamish/.local/bin')
-path+='/home/hamish/src/useful-scripts/generic'
-path+='/home/hamish/src/useful-scripts/arch-desktop'
-path+='/home/hamish/.gem/ruby/2.7.0/bin'
+##############
+#    PATH    #
+##############
+path+=('/home/users/hmo/.local/bin')
 export PATH
 
 export MPD_HOST="localhost"
