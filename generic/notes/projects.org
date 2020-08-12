@@ -1,0 +1,10 @@
+This is the canonical reference point for *all* projects, past, present and future.
+
+If the project is big enough that it has its own /notes/ files, this should just be a link to that file.
+
+* System Administration & Utilities
+** TODO name-value-args
+** TODO proper locationing of configs & cmake install for utilities
+This does hinge to a certain extent on the potential for different platforms to share a single master copy of a config, and differ by branching. If symlinks are to be broken, and utilities on PATH are to be moved, this should all happen at once.
+
+ 

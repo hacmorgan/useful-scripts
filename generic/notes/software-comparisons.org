@@ -2,21 +2,44 @@
 * Comparisons of competing software
 ** OS/Distro
 *** Arch Linux
-| *Good*                         | *Bad*                                 | *Other* |
-|--------------------------------+---------------------------------------+---------|
-| - Best bleeding edge distro    | - A bit harder to use a custom kernel |         |
-| - Relatively fast install time | - x86_64 only (probably irrelevant)   |         |
-| - The AUR                      |                                       |         |
-| - Bigger repository            |                                       |         |
+| *Good*                           | *Bad*                                 | *Other* |
+|----------------------------------+---------------------------------------+---------|
+| - Best bleeding edge distro      | - A bit harder to use a custom kernel |         |
+| - Relatively fast install time   | - x86_64 only (probably irrelevant)   |         |
+| - The AUR                        |                                       |         |
+| - Bigger repository              |                                       |         |
+| - Nvidia drivers easy to install |                                       |         |
+
 *** Gentoo Linux
 | *Good*                                       | *Bad*                                      | *Other* |
 |----------------------------------------------+--------------------------------------------+---------|
 | - Everything compiled for the target machine | - Smaller repository, esp when considering |         |
-|                                              | masked packages                            |         |
+|                                              |   masked packages                          |         |
+
 *** FreeBSD
+| *Good*                                 | *Bad*                                   | *Other*                    |
+|----------------------------------------+-----------------------------------------+----------------------------|
+| - Very stable                          | - OpenRC init system is slow and clunky | - Should ask chris whether |
+| - More UNIX'y (/bin for sysutils only) | compared to systemd                     | he uses pkg or ports       |
+| - Chris uses it, but then again his    | - Small user base -> worse hardware     |                            |
+| systems do need to be up a long time   | support                                 |                            |
+|                                        | - Unsure if nvidia drivers even exist   |                            |
+|                                        | - Many things only available via ports, |                            |
+|                                        | so you gotta use ports, and they slow   |                            |
+
 ** Terminal
+*** st
+| *Good*                       | *Bad*                              | *Other* |
+|------------------------------+------------------------------------+---------|
+| - Extremely lightweight      | - Comes broken                     |         |
+| - Doesn't require toooo many | - Not as pretty as some of the     |         |
+| patches to work properly     | heavier terminal applications      |         |
+| - Patches play nice          | - Home and End don't work properly |         |
+|                              | in remote vim on Gentoo           |         |
+
 ** Text Editor
 ** Window Manager
+
 * System Configurations
 ** [2020-08-11 Tue] Pelicomp: Gentoo, st, emacs, dwm
 This is quite a good setup for this computer. the minimalism of st and dwm works wonders for speed. Gentoo certainly seems quite easy to use, but compiling software is pretty slow. Emacs runs nicely, but can be slow when working on remote connections. Noticeably worse than on the Ryzen lol.
