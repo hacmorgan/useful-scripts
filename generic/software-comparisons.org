@@ -1,0 +1,22 @@
+
+* Comparisons of competing software
+** OS/Distro
+*** Arch Linux
+| *Good*                         | *Bad*                                 | *Other* |
+|--------------------------------+---------------------------------------+---------|
+| - Best bleeding edge distro    | - A bit harder to use a custom kernel |         |
+| - Relatively fast install time | - x86_64 only (probably irrelevant)   |         |
+| - The AUR                      |                                       |         |
+| - Bigger repository            |                                       |         |
+*** Gentoo Linux
+| *Good*                                       | *Bad*                                      | *Other* |
+|----------------------------------------------+--------------------------------------------+---------|
+| - Everything compiled for the target machine | - Smaller repository, esp when considering |         |
+|                                              | masked packages                            |         |
+*** FreeBSD
+** Terminal
+** Text Editor
+** Window Manager
+* System Configurations
+** [2020-08-11 Tue] Pelicomp: Gentoo, st, emacs, dwm
+This is quite a good setup for this computer. the minimalism of st and dwm works wonders for speed. Gentoo certainly seems quite easy to use, but compiling software is pretty slow. Emacs runs nicely, but can be slow when working on remote connections. Noticeably worse than on the Ryzen lol.
