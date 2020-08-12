@@ -29,3 +29,23 @@ Host rgb
 Host rgb_remote
     User hamish
     Hostname thinkingaboudis.zapto.org
+    
+Host hippo
+	HostName 10.137.4.1
+	User hmo
+
+Host rhino
+	HostName 10.137.4.2
+	User hmo
+
+Host dingo
+	HostName 10.137.4.3
+	User hmo
+
+Host gecko
+	HostName 10.137.4.4
+	User hmo
+
+Host buffalo
+	HostName 10.137.4.5
+	User hmo

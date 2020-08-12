@@ -164,7 +164,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 
 # Settings
-bindsym $mod+Shift+s exec "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
+# bindsym $mod+Shift+s exec "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 
 
 # reload the configuration file
@@ -275,7 +275,10 @@ bindsym XF86MonBrightnessDown exec ~/src/useful-scripts/work-laptop/adjustBackli
 bindsym F10 exec ~/src/useful-scripts/adjustKeyboardBacklight UP
 
 # Disable touchpad
-bindsym $mod+F7 exec ~/src/useful-scripts/work-laptop/disableTouchpad 
+bindsym $mod+F7 exec ~/src/useful-scripts/work-laptop/disableTouchpad
+
+# dmenu custom
+bindsym $mod+Shift+s exec ~/src/useful-scripts/generic/dmenu-custom
 
 # Make authentication windows pop up
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
