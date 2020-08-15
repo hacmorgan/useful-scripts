@@ -53,12 +53,12 @@ emacs --daemon &
 /home/hamish/src/useful-scripts/pelicomp/mouse &!
 
 # launch picom
-picom &!
+#picom &!
 
 # set desktop background
 feh --bg-center ~/src/useful-scripts/pelicomp/wallpapers/eboy_big.png
 
 # set the dwm status bar in motion
-~/src/foss/dwm/dwmbar &!
+#~/src/foss/dwm/dwmbar &!
 
-exec dwm
+exec i3
