@@ -11,7 +11,7 @@
 
 set $mod Mod1
 
-set $TERMINAL st
+set $TERMINAL termite
 
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -221,7 +221,7 @@ gaps outer 1
 smart_gaps on
 smart_borders on
 bindsym $mod+Shift+g mode "$mode_gaps"
-#border_radius 5
+# border_radius 25
 
 
 #class                 border  bground text    indicator child_border
@@ -235,7 +235,7 @@ client.background       #F8F8F2
 
 # Turn window borders off
 hide_edge_borders both
-default_border pixel 0
+default_border pixel 2
 
 # Desktop backgrounds
 # exec --no-startup-id feh --bg-center ~/src/useful-scripts/arch-desktop/eboy_ny.png --bg-center ~/src/useful-scripts/arch-desktop/eboy_tok.png
