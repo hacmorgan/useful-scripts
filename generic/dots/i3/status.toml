@@ -29,13 +29,6 @@ interval = 1
 format = "{barchart} {utilization}% {frequency}GHz"
 
 [[block]]
-block = "nvidia_gpu"
-label = "GTX 980"
-show_memory = true
-show_clocks = true
-interval = 1
-
-[[block]]
 block = "temperature"
 collapsed = false
 interval = 10
@@ -43,7 +36,7 @@ format = "{min}° min, {max}° max, {average}° avg"
 
 [[block]]
 block = "net"
-device = "enp4s0"
+device = "wlp3s0"
 ssid = true
 signal_strength = true
 ip = true

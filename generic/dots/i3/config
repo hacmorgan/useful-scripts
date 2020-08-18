@@ -53,10 +53,6 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -186,26 +182,8 @@ bindsym $mod+Ctrl+Up resize grow height 5px
 
 
 
-# BAR
-#bar {
-#        status_command i3status
-#                
-#        position top
-#	height 18
-#        colors {
-#        background #282A36
-#        statusline #F8F8F2
-#        separator  #44475A
-#
-#        focused_workspace  #aa34f7 #aa34f7 #F8F8F2
-#        active_workspace   #282A36 #44475A #F8F8F2
-#        inactive_workspace #282A36 #282A36 #BFBFBF
-#        urgent_workspace   #FF5555 #FF5555 #F8F8F2
-#        binding_mode       #FF5555 #FF5555 #F8F8F2
-#        }
-#}
 bar {
-    font pango:Fantasque Sans Mono, FontAwesome 12.9
+    font pango:Fantasque Sans Mono, FontAwesome 10.5
     position top
     status_command /usr/bin/i3status-rs /home/hamish/.config/i3/status.toml
     colors {
@@ -220,12 +198,9 @@ bar {
 }
 
 gaps inner 12
-gaps outer 1
-#gaps top -2
 smart_gaps on
 smart_borders on
 bindsym $mod+Shift+g mode "$mode_gaps"
-# border_radius 5
 
 
 #class                 border  bground text    indicator child_border
@@ -245,9 +220,6 @@ default_border pixel 2
 bindsym $mod+Ctrl+Shift+Left move workspace to output left
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
-# Compton
-exec --no-startup-id picom
-
 ###############
 # KEYBINDINGS #
 ###############
@@ -262,6 +234,3 @@ bindsym $mod+Shift+o exec --no-startup-id "emacsclient -a '' -c"
 bindsym $mod+Shift+t exec --no-startup-id pcmanfm
 
 bindsym --release $mod+Shift+s exec --no-startup-id "/home/hamish/src/useful-scripts/generic/dmenu-custom settings"
-# scrot
-# bindsym --release $mod+Shift+s exec --no-startup-id "scrot -s -e 'mv $f /tmp/'"
-# N.B. the --release flag fixes some unresponsive keybindings
