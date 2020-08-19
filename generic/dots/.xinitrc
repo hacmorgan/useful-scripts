@@ -35,15 +35,8 @@ fi
 # Start picom
 picom &!
 
-# Set numlock to be on 
-numlockx &
-
-# display arrangement
-xrandr --output HDMI-0 --primary --right-of DP-2
-
 # set backgrounds
-feh --bg-center ~/src/useful-scripts/arch-desktop/eboy_ny.png \
-    --bg-center ~/src/useful-scripts/arch-desktop/eboy_tok.png
+feh --bg-center ~/src/useful-scripts/x360/eboy_tok.png 
 
 # set keyboard params
 xset r rate 200 50
