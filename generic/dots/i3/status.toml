@@ -30,7 +30,7 @@ format = "{barchart} {utilization}% {frequency}GHz"
 
 [[block]]
 block = "nvidia_gpu"
-label = "GTX 980"
+label = "GTX 1050 Ti"
 show_memory = true
 show_clocks = true
 interval = 1
@@ -43,7 +43,7 @@ format = "{min}° min, {max}° max, {average}° avg"
 
 [[block]]
 block = "net"
-device = "enp4s0"
+device = "wlp3s0"
 ssid = true
 signal_strength = true
 ip = true
@@ -53,11 +53,15 @@ interval = 1
 use_bits = false
 
 [[block]]
-block = "pacman"
-interval = 10
-format = "{count} updates available"
-format_singular = "{count} update available"
-format_up_to_date = "system up to date"
+block = "net"
+device = "enp2s0"
+ssid = false
+ip = true
+speed_up = false
+graph_down = true
+interval = 1
+use_bits = false
+hide_missing = true
 
 [[block]]
 block = "sound"
