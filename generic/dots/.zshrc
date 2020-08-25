@@ -116,7 +116,7 @@ path+=('/home/hamish/.local/bin')
 path+=('/home/hamish/src/useful-scripts/generic')
 export PATH
 
-export EDITOR="/bin/nvim"
+export EDITOR="/bin/emacsclient -nw"
 
 export MPD_HOST="localhost"
 export MPD_PORT="6600"

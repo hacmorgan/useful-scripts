@@ -10,6 +10,7 @@ This does hinge to a certain extent on the potential for different platforms to 
 With that said, there is also a chance git branches won't work perfectly for this, as they /seem/ to be slightly more specialised for maintaining a code base. For this reason, the git branching thing should be the first thing investigated here.
 
 *** TODO Transition some configs to a branching system to test if suitable
+This has been working great, currently leaving the master branch as the desktop config, and having separate branches for everything else.
 
     
 
