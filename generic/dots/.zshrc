@@ -107,7 +107,8 @@ alias pm='pulsemixer'
 alias tm='tmux attach || tmux'
 alias datasets2processed="pwd | sed 's/datasets/processed/g'"
 alias processed2datasets="pwd | sed 's/processed/datasets/g'"
-
+alias l='ls -l'
+alias ll='ls -la'
 
 #################
 #    EXPORTS    #
