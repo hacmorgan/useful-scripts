@@ -117,7 +117,7 @@ path+=('/home/users/hmo/.local/bin')
 path+=('/home/users/hmo/src/useful-scripts/generic')
 export PATH
 
-export EDITOR="/bin/emacsclient -nw"
+export EDITOR="/bin/nvim"
 
 export MPD_HOST="localhost"
 export MPD_PORT="6600"
