@@ -13,7 +13,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/hamish/.oh-my-zsh"
+export ZSH="/home/users/hmo/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -113,8 +113,8 @@ alias ll='ls -la'
 #################
 #    EXPORTS    #
 #################
-path+=('/home/hamish/.local/bin')
-path+=('/home/hamish/src/useful-scripts/generic')
+path+=('/home/users/hmo/.local/bin')
+path+=('/home/users/hmo/src/useful-scripts/generic')
 export PATH
 
 export EDITOR="/bin/emacsclient -nw"
