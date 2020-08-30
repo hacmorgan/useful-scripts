@@ -55,7 +55,7 @@ background          = #000000
 # 16 color space
 
 # Black, Gray, Silver, White
-color0  = #2e2a31
+color0  = #000000
 color8  = #838085
 color7  = #bcbabe
 color15 = #f5f4f7
