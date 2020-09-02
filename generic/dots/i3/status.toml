@@ -64,6 +64,12 @@ use_bits = false
 hide_missing = true
 
 [[block]]
+block = "battery"
+driver = "upower"
+interval = 10
+format = "{percentage}% {time}"
+
+[[block]]
 block = "sound"
 
 [[block]]
