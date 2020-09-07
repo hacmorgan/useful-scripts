@@ -33,13 +33,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # Start picom
-picom &!
+compton &!
 
 # Set numlock to be on 
 numlockx &
 
 # display arrangement
-xrandr --output HDMI-0 --primary --right-of DP-2
+xrandr --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-1 --off --output HDMI-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal
+
 
 # set backgrounds
 feh --bg-center ~/src/useful-scripts/arch-desktop/eboy_ny.png \
