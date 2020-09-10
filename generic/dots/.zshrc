@@ -109,8 +109,8 @@ alias datasets2processed="pwd | sed 's/datasets/processed/g'"
 alias processed2datasets="pwd | sed 's/processed/datasets/g'"
 alias l='ls -l'
 alias ll='ls -la'
-alias activate-metashape="src/garbage/metashape-pro/metashape.sh --activate ADFXV-42BN8-M7VAR-9AOGY-NGKE6"
-alias deactivate-metashape="src/garbage/metashape-pro/metashape.sh --deactivate"
+alias activate-metashape='/opt/metashape-pro/metashape.sh --activate ADFXV-42BN8-M7VAR-9AOGY-NGKE6'
+alias deactivate-metashape='/opt/metashape-pro/metashape.sh --deactivate'
 alias mnt_pond='abyss-mount-share hmo rhino-pond /mnt/pond'
 alias mnt_tank='abyss-mount-share hmo rhino-tank /mnt/tank'
 
