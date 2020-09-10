@@ -9,6 +9,10 @@ if [ $netType == "static" ]
 then
 	echo "Changing to static network configuration"
 	sudo cp /home/hamish/src/useful-scripts/work-laptop/netScripts/static.yaml /etc/netplan/01-netcfg.yaml
+elif [ $netType == "static.daheng" ]
+then
+	echo "Changing to static.daheng network configuration"
+	sudo cp /home/hamish/src/useful-scripts/work-laptop/netScripts/static.daheng.yaml /etc/netplan/01-netcfg.yaml
 elif [ $netType == "dynamic" ]
 then
 	echo "Changing to dynamic network configuration"
