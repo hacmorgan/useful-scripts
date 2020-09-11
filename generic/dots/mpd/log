@@ -12004,3 +12004,26 @@ Jun 18 20:38 : exception: OutputThread could not get realtime scheduling, contin
 Jun 18 20:38 : alsa_output: Decoder is too slow; playing silence to avoid xrun
 Jun 18 20:42 : player: played "MP3/The Funkoars/The Greatest Hits/You Know It.mp3"
 Jun 19 10:02 : player: played "MP3/The Funkoars/The Greatest Hits/The Symphony.mp3"
+Sep 08 21:52 : client: [0] opened from 127.0.0.1:43350
+Sep 08 21:53 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Sep 08 21:56 : client: [0] closed
+Sep 08 21:56 : client: [1] opened from 127.0.0.1:43358
+Sep 08 21:56 : player: played "MP3/The Funkoars/The Greatest Hits/Da Na Na.mp3"
+Sep 08 21:57 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Sep 08 21:57 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Sep 08 21:58 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Sep 08 21:58 : player: played "MP3/The Funkoars/The Greatest Hits/Da Na Na.mp3"
+Sep 08 22:06 : player: played "HD Audio/A.B. Original/Reclaim Australia/Take Me Home feat. Gurrumul.flac"
+Sep 08 22:07 : ffmpeg/aac: Could not update timestamps for skipped samples.
+Sep 08 22:07 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Sep 08 22:10 : player: played "HD Audio/Thomas Dolby/Aliens Ate My Buick/Airhead.flac"
+Sep 08 22:14 : player: played "MP3/The Funkoars/The Greatest Hits/The Symphony.mp3"
+xcb_connection_has_error() returned true
+Sep 08 22:17 : player: played "HD Audio/A.B. Original/Reclaim Australia/The Feast feat. King T.flac"
+Sep 08 22:21 : player: played "HD Audio/A.B. Original/Reclaim Australia/January 26 feat. Dan Sultan.flac"
+Sep 08 22:27 : player: played "HD Audio/Donald Fagen/Trans-Island Skyway.flac"
+Sep 08 22:31 : player: played "HD Audio/Run the Jewels/Run The Jewels 3/Legend Has It.flac"
+Sep 08 22:35 : player: played "HD Audio/Run the Jewels/Run The Jewels 3/2100 (feat. BOOTS).flac"
+Sep 08 22:38 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+Sep 08 22:38 : player: played "HD Audio/A.B. Original/Reclaim Australia/Firing Squad feat. Hau.flac"
+Sep 09 00:57 : client: [1] closed
