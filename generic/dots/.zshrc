@@ -117,6 +117,7 @@ alias deactivate-metashape='/opt/metashape-pro/metashape.sh --deactivate'
 #################
 path+=('/home/hamish/.local/bin')
 path+=('/home/hamish/src/useful-scripts/generic')
+path+=('/home/hamish/src/useful-scripts/arch-desktop')
 export PATH
 
 export EDITOR="/bin/emacsclient -nw"
