@@ -12,6 +12,7 @@ With that said, there is also a chance git branches won't work perfectly for thi
 *** TODO Transition some configs to a branching system to test if suitable
 This has been working great, currently leaving the master branch as the desktop config, and having separate branches for everything else.
 
+*** TODO Copy cmake stuff from Bedrock in order to install utilities
     
 * Programming Languages
 ** Rust
