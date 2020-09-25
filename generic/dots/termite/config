@@ -40,8 +40,6 @@ scrollback_lines = 10000
 # "off", "left" or "right"
 #scrollbar = off
 
-
-
 [colors]
 # Base16 Unikitty Dark
 # Author: Josh W Lewis (@joshwlewis)
@@ -74,7 +72,7 @@ color3  = #dc8a0e
 color11 = #dc8a0e
 
 # Blue
-color4  = #796af5
+color4  = #3c3480
 color12 = #796af5
 
 # Purple
