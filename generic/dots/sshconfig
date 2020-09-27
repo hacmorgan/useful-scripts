@@ -1,14 +1,14 @@
 Host work
-     User hamish
-     HostName 10.0.0.73
+    User hamish
+    HostName 10.0.0.102
 
 Host thinkpad
-     User hamish
-     HostName 10.0.0.80 
+    User hamish
+    HostName 10.0.0.80 
 
 Host pi
-     User hamish
-     HostName 10.0.0.84
+    User hamish
+    HostName 10.0.0.84
     
 Host processor
 	User processor
@@ -29,7 +29,11 @@ Host rgb
 Host rgb_remote
     User hamish
     Hostname thinkingaboudis.zapto.org
-    
+
+Host collab
+    User collab
+    Hostname 10.0.0.67
+
 Host hippo
 	HostName 10.137.4.1
 	User hmo

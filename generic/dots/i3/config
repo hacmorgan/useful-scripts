@@ -46,7 +46,7 @@ floating_modifier $mod
 # new terminal commands (standard, python, sshwork)
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+Shift+Return exec $TERMINAL -e "python -q"
-bindsym $mod+Ctrl+Return exec $TERMINAL -e "ssh -X rgb || ssh -X rgb_remote"
+bindsym $mod+Ctrl+Return exec $TERMINAL -e "ssh -X rgb"
 
 # kill focused window
 bindsym $mod+Shift+q kill

@@ -109,6 +109,8 @@ alias datasets2processed="pwd | sed 's/datasets/processed/g'"
 alias processed2datasets="pwd | sed 's/processed/datasets/g'"
 alias l='ls -l'
 alias ll='ls -la'
+alias activate-metashape='/opt/metashape-pro/metashape.sh --activate ADFXV-42BN8-M7VAR-9AOGY-NGKE6'
+alias deactivate-metashape='/opt/metashape-pro/metashape.sh --deactivate'
 
 #################
 #    EXPORTS    #
@@ -117,7 +119,7 @@ path+=('/home/hamish/.local/bin')
 path+=('/home/hamish/src/useful-scripts/generic')
 export PATH
 
-export EDITOR="/bin/emacsclient -nw"
+export EDITOR="/usr/local/bin/emacsclient -nw"
 
 export MPD_HOST="localhost"
 export MPD_PORT="6600"
