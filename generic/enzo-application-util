@@ -21,6 +21,13 @@
 # [[ -z "$enzo_command_line_parse_include_safeguard" ]] || return 0
 # readonly enzo_command_line_parse_include_safeguard=1
 
+
+function check-for-help()
+{
+    
+}
+
+
 function enzo-command-line-parse()
 {
 	# first check to see if the user has asked for help
@@ -35,11 +42,5 @@ function enzo-command-line-parse()
 }
 
 
-function enzo-options-to-name-value()
-{
-	# firstly strip all '-'s and replace with '\n'
-	options=$( echo "$@" | sed 's/ --/\n/g;s/ -/\n/g;s/=/ /g' )
-	echo "$options"
-}
 
 enzo-options-to-name-value "$0 $@"
