@@ -58,7 +58,4 @@ emacs --daemon &
 # set desktop background
 feh --bg-center ~/src/useful-scripts/pelicomp/wallpapers/eboy_big.png
 
-# set the dwm status bar in motion
-#~/src/foss/dwm/dwmbar &!
-
 exec i3

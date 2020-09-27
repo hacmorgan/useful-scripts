@@ -115,6 +115,7 @@ alias ll='ls -la'
 #################
 path+=('/home/hamish/.local/bin')
 path+=('/home/hamish/src/useful-scripts/generic')
+path+=('/home/hamish/src/useful-scripts/pelicomp')
 export PATH
 
 export EDITOR="/bin/emacsclient -nw"
