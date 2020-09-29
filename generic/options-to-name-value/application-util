@@ -21,26 +21,38 @@
 # [[ -z "$enzo_command_line_parse_include_safeguard" ]] || return 0
 # readonly enzo_command_line_parse_include_safeguard=1
 
+function say() { echo "$( basename "$0" ): $@" >&2; }
+export -f say
+function die() { say $@; exit 1; }
+export -f die
+
 
 function check-for-help()
 {
-    
+    echo "$@" | tr ' ' '\n' | grep -e "^-h$" -e "^--help$" > /dev/null
 }
 
 
-function enzo-command-line-parse()
+function command-line-parse()
 {
-	# first check to see if the user has asked for help
 	if check-for-help "$@"; then
-		# we simply call the usage function, which we check is defined in the scipt invoking
-		[[ "$( type -t usage )" == "function" ]]  || die "I see you asked for help, but there is no usage function defined in this script"
-		usage
-		exit
+		if [[ "$( type -t usage )" == "function" ]]; then
+            echo -e "help for $0 \n"
+		    usage
+            echo
+            options
+            echo "$@"
+		    exit
+        else
+            die "I see you asked for help, but there is no usage function defined in this script"
+        fi
 	fi
 
-	
+    if [[ "$( type -t options )" == "function" ]]; then
+        < <( options | ./options-to-name-value "$@" | sed 's/^-*/options_/g' )
+    else
+        die "error: there is no defined function named options"
+    fi
 }
-
-
-
-enzo-options-to-name-value "$0 $@"
+export -f command-line-parse
+# command-line-parse "$@"
