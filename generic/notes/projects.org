@@ -20,13 +20,22 @@ This has been working great, currently leaving the master branch as the desktop 
 *** TODO Contribute to i3status-rust 
 **** TODO Determine if the project is too advanced
 
+* Programming Languages
+** Rust
+*** TODO Rust by example
+*** TODO Algorithms course
+*** TODO Contribute to i3status-rust 
+**** TODO Determine if the project is too advanced
+*** TODO COntribute to ROSrust
 ** C
 *** TODO Work through CK&R
 
 
 * Building Stuff
-** [[~/src/projects/pelicomputer/plan.org][Pelicomp Rebuild]]
-
+** [[~/src/projects/pelicomputer/plan.org][Pelicomp v1.0]]
+** FreeCAD
+*** Tutorial
+*** Metrology
 
 * Embedded
 ** Contemporary
