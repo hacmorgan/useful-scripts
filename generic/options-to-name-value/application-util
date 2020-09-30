@@ -49,7 +49,10 @@ function command-line-parse()
 	fi
 
     if [[ "$( type -t options )" == "function" ]]; then
-        < <( options | ./options-to-name-value "$@" | sed 's/^-*/options_/g' )
+        < <( options \
+                 | /home/hamish/src/useful-scripts/generic/options-to-name-value/options-to-name-value "$@" \
+                 | sed 's/^-*/options_/g' )
+        # options | ./options-to-name-value "$@" | sed 's/^-*/options_/g'
     else
         die "error: there is no defined function named options"
     fi

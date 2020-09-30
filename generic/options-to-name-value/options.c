@@ -31,7 +31,6 @@ void destroyOptions( option *op )
 
 option *readOptions( void )
 {
-    printf( "here\n" );
     char line[MAXLINE];
     char *semicolon;
     option *start = NULL;
@@ -47,7 +46,6 @@ option *readOptions( void )
             exit(1);
         }
 
-        printf( "here\n" );
         if ( start == NULL ) {
             start = createOption();
             op = start;
@@ -56,7 +54,6 @@ option *readOptions( void )
             op = op->next;
         }
         
-        printf( "here\n" );
         op->name = readAliases( line, semicolon );  /* populate aliases */
 
         if ( strstr( line, "=<" ) == NULL && strstr( line, "=[<" ) == NULL ) {
@@ -148,8 +145,8 @@ option *processArg( char **arg, option *start )
         return processArg( ++arg, start );
     }
     
-    char *eqpos = strchr( *arg, '=' );
-    if ( eqpos == NULL ) {  /* value is in next argument */
+    char *equal = strchr( *arg, '=' );
+    if ( equal == NULL ) {  /* value is in next argument */
         char *value = *(++arg);
         if ( value == NULL ) {
             fprintf( stderr, "error: expected value for optional argument %s\n", *(--arg) );
@@ -158,8 +155,8 @@ option *processArg( char **arg, option *start )
         matchingOption->value = heapString( value );
     } else {  /* format: name=value */
         char *end = strchr( *arg, '\0' );
-        char value[end-eqpos];
-        strcpy( value, eqpos+1 );
+        char value[end-equal];
+        strcpy( value, equal+1 );
         matchingOption->value = heapString( value );
     }
 

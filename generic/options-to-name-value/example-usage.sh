@@ -24,3 +24,5 @@ EOF
 }
 
 command-line-parse "$@"
+
+printf "The name I was given is: " ; echo $options_name
