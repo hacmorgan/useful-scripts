@@ -12,13 +12,39 @@ With that said, there is also a chance git branches won't work perfectly for thi
 *** TODO Transition some configs to a branching system to test if suitable
 This has been working great, currently leaving the master branch as the desktop config, and having separate branches for everything else.
 
+*** TODO Copy cmake stuff from Bedrock in order to install utilities
     
 
-* Rust
-** TODO Work through a rust tutorial
-** TODO Contribute to i3status-rust 
-*** TODO Determine if the project is too advanced
+* Programming Languages
+** Rust
+*** TODO Rust by example
+*** TODO Algorithms course
+*** TODO Contribute to i3status-rust 
+**** TODO Determine if the project is too advanced
+*** TODO COntribute to ROSrust
+** C
+*** TODO Work through CK&R
 
 
-* C
-** TODO Work through CK&R
+* Building Stuff
+** [[~/src/projects/pelicomputer/plan.org][Pelicomp v1.0]]
+** FreeCAD
+*** Tutorial
+*** Metrology
+
+* Embedded
+** Contemporary
+*** RTEMS Quick Start Guide
+**** TODO Review email from Chris to determine if can proceed
+
+
+* Other people's projects
+** Tour Calculator
+
+
+* Completed
+None 
+
+
+* Abandoned
+None, yet.
