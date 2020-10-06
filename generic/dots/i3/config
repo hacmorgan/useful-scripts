@@ -220,6 +220,9 @@ default_border pixel 2
 bindsym $mod+Ctrl+Shift+Left move workspace to output left
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
+# Make rqt_gui float by default
+for_window [class="rqt_gui"] floating enable
+
 ###############
 # KEYBINDINGS #
 ###############
