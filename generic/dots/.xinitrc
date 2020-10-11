@@ -39,7 +39,7 @@ picom &!
 feh --bg-center ~/src/useful-scripts/x360/eboy_tok.png 
 
 # set keyboard params
-xset r rate 200 50
+xset r rate 250 50
 
 # start the emacs server. disown so that exiting x session doesn't kill emacs
 emacs --daemon &!

@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# this is a basic script to allow name-value argument parsing
+# derived from comma-name-value-util https://gitlab.com/orthographic/comma
+
+# this script is deigned to be included in other scripts directly:
+# source $( type -p enzo-name-value-util )
+
+
+# TODO
+# - implement enzo-options-to-name-value/
+#   - split into list of name and field strings
+#     - replace all '='s with ' '
+#     - differentiate flags from arguments by presence of '-'
+#   - determine the full name if it's an abbreviated one (e.g. -h)
+#     - see if we can run all funcions matching a pattern, run *_options
+# - implement enzo-path-value-mangle
+# - 
+
+# check if this script has already been called in current shell
+# [[ -z "$enzo_command_line_parse_include_safeguard" ]] || return 0
+# readonly enzo_command_line_parse_include_safeguard=1
+
+function say() { echo "$( basename "$0" ): $@" >&2; }
+export -f say
+function die() { say $@; exit 1; }
+export -f die
+
+
+function check-for-help()
+{
+    echo "$@" | tr ' ' '\n' | grep -e "^-h$" -e "^--help$" > /dev/null
+}
+
+
+function command-line-parse()
+{
+	if check-for-help "$@"; then
+		if [[ "$( type -t usage )" == "function" ]]; then
+            echo -e "help for $0 \n"
+		    usage
+            echo
+            options
+            echo "$@"
+		    exit
+        else
+            die "I see you asked for help, but there is no usage function defined in this script"
+        fi
+	fi
+
+    if [[ "$( type -t options )" == "function" ]]; then
+        < <( options \
+                 | /home/hamish/src/useful-scripts/generic/options-to-name-value/options-to-name-value "$@" \
+                 | sed 's/^-*/options_/g' )
+        # options | ./options-to-name-value "$@" | sed 's/^-*/options_/g'
+    else
+        die "error: there is no defined function named options"
+    fi
+}
+export -f command-line-parse
+# command-line-parse "$@"

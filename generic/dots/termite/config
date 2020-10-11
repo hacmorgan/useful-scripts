@@ -46,7 +46,7 @@ scrollback_lines = 10000
 
 foreground          = #bcbabe
 foreground_bold     = #bcbabe
-cursor              = #bcbabe
+cursor              = #803894
 cursor_foreground   = #2e2a31
 # background          = #000000
 background = rgba(0, 0, 0, 0.95)

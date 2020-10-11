@@ -105,8 +105,10 @@ alias sshpi='ssh -Y pi@10.0.0.75'
 alias sshwork='ssh -Y hamish@10.0.0.73'
 alias pm='pulsemixer'
 alias tm='tmux attach || tmux'
-alias datasets2processed="pwd | sed 's/datasets/processed/g'"
-alias processed2datasets="pwd | sed 's/processed/datasets/g'"
+alias d2p="pwd | sed 's/datasets/processed/g'"
+alias p2d="pwd | sed 's/processed/datasets/g'"
+alias b2s="pwd | sed 's/build/src/g'"
+alias s2b="pwd | sed 's/src/build/g'"
 alias l='ls -l'
 alias ll='ls -la'
 alias activate-metashape='/opt/metashape-pro/metashape.sh --activate ADFXV-42BN8-M7VAR-9AOGY-NGKE6'
@@ -128,4 +130,4 @@ export MPD_PORT="6600"
 export ALTERNATE_EDITOR=""
 
 # Fix colours in tmux
-export TERM=xterm-256color
+export TERM=screen-256color
