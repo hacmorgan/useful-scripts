@@ -131,4 +131,4 @@ export MPD_PORT="6600"
 export ALTERNATE_EDITOR=""
 
 # Fix colours in tmux
-export TERM=xterm-256color
+export TERM=screen-256color
