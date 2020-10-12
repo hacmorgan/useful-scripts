@@ -5,11 +5,7 @@
 function get-choice()
 {
     options="$1"
-<<<<<<< HEAD
-    echo $options | sed 's/,/\n/g' | dmenu 
-=======
     echo $options | tr ',' '\n' | dmenu 
->>>>>>> origin/master
 }
 
 
