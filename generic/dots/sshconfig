@@ -6,6 +6,14 @@ Host thinkpad
     User hamish
     HostName 10.0.0.80 
 
+Host pelicomp
+    User hamish
+    HostName 10.0.0.91
+
+Host pelicomp_eth
+    User hamish
+    HostName 10.0.0.90
+
 Host pi
     User hamish
     HostName 10.0.0.84
