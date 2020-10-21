@@ -120,6 +120,20 @@ function main-run ()
         esac
     }
 
+    function xrandr-run()
+    {
+        local xrandr_options="both screens,laptop only,external only"
+        local selected_option="$( get-choice "$xrandr_options" )"
+        case "$selected_option" in
+            "both screens")
+                /home/hamish/src/useful-scripts/work-laptop/use-both-screens ;;
+            "laptop only")
+                /home/hamish/src/useful-scripts/work-laptop/use-laptop-screen-only ;;
+            "external only")
+                /home/hamish/src/useful-scripts/work-laptop/use-external-only ;;
+        esac
+    }
+
     function picom-run()
     {
         local picom_options="turn on,turn off"
@@ -132,7 +146,7 @@ function main-run ()
         esac
     }
        
-    subsetting_options="power,edit configs,keyboard multiplier,screenshot,picom"
+    subsetting_options="power,screenshot,edit configs,keyboard multiplier,xrandr,picom"
     subsetting="$( get-choice "$subsetting_options" )"
     echo $subsetting
     case "$subsetting" in
@@ -144,6 +158,8 @@ function main-run ()
             keyboard-multiplier-run ;;
         "screenshot")
             screenshot-run ;;
+        "xrandr")
+            xrandr-run ;;
         "picom")
             picom-run ;;
     esac
