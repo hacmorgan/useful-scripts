@@ -35,11 +35,11 @@ show_memory = true
 show_clocks = true
 interval = 1
 
-[[block]]
-block = "temperature"
-collapsed = false
-interval = 10
-format = "{min}° min, {max}° max, {average}° avg"
+#[[block]]
+#block = "temperature"
+#collapsed = false
+#interval = 10
+#format = "{min}° min, {max}° max, {average}° avg"
 
 [[block]]
 block = "net"
