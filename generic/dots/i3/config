@@ -11,7 +11,7 @@
 
 set $mod Mod1
 
-set $TERMINAL gnome-terminal
+set $TERMINAL sakura
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -44,8 +44,8 @@ floating_modifier $mod
 
 # new terminal commands (standard, python, sshwork)
 bindsym $mod+Return exec $TERMINAL
-bindsym $mod+Shift+Return exec $TERMINAL -e "python -q"
-bindsym $mod+Ctrl+Return exec $TERMINAL -e "ssh -X rgb"
+bindsym $mod+Shift+Return exec $TERMINAL -x "python3 -q"
+bindsym $mod+Ctrl+Return exec $TERMINAL -x "ssh -X rgb"
 
 # kill focused window
 bindsym $mod+Shift+q kill

@@ -53,4 +53,4 @@ xset r rate 250 50
 emacs --daemon &!
 
 # this is the last thing we do!
-exec i3
+#exec i3
