@@ -3,13 +3,15 @@
 # First argument is whether to increase or decrease brightness
 upOrDown=$1
 
+backlightHelper=/usr/libexec/gsd-backlight-helper
+
 # Find current brightness
-currBrightness="$(/usr/lib/gnome-settings-daemon/gsd-backlight-helper --get-brightness)"
+currBrightness="$( cat /sys/class/backlight/intel_backlight/actual_brightness )"
 
 if [ $upOrDown = "up" ]; then
-	newBrightness="$(echo $currBrightness + 1000 | bc)"
+	newBrightness="$(echo $currBrightness + 10000 | bc)"
 elif [ $upOrDown = "down" ]; then
-	newBrightness="$(echo $currBrightness - 1000 | bc)"
+	newBrightness="$(echo $currBrightness - 10000 | bc)"
 else
 	exit 1
 fi
@@ -18,4 +20,5 @@ fi
 notify-send -t 800 "Display backlight set to ${newBrightness}"
 
 # Set brightness
-pkexec /usr/lib/gnome-settings-daemon/gsd-backlight-helper --set-brightness $newBrightness
+# sudo /usr/libexec/gsd-backlight-helper /sys/class/backlight/intel_backlight/ $newBrightness
+sudo $backlightHelper /sys/class/backlight/intel_backlight/ $newBrightness
