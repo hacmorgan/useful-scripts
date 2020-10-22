@@ -122,7 +122,7 @@ path+=('/home/hamish/src/useful-scripts/generic')
 path+=('/home/hamish/src/useful-scripts/arch-desktop')
 export PATH
 
-export EDITOR="/bin/emacsclient -nw"
+export EDITOR="/bin/nvim"
 
 export MPD_HOST="localhost"
 export MPD_PORT="6600"
