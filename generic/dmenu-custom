@@ -132,7 +132,7 @@ function main-run ()
         esac
     }
        
-    subsetting_options="power,edit configs,keyboard multiplier,screenshot,picom"
+    subsetting_options="power,screenshot,keyboard multiplier,edit configs,picom"
     subsetting="$( get-choice "$subsetting_options" )"
     echo $subsetting
     case "$subsetting" in
