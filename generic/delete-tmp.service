@@ -1,0 +1,10 @@
+[Unit]
+Description=Delete everything in the ~/tmp directory
+After=systemd-timesyncd.service
+
+[Service]
+ExecStart=rm -rf ~/tmp/*
+User=hamish
+
+[Install]
+WantedBy=multi-user.target
