@@ -10,6 +10,7 @@
 (monitor-xresolution 82)
 (monitor-yresolution 82)
 (toolbox-groups no)
+(user-manual-online yes)
 (fill-options
     (style solid)
     (antialias yes)
