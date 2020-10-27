@@ -88,6 +88,8 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
+# source ROS envs
+source /opt/ros/noetic/setup.zsh
 
 
 #################

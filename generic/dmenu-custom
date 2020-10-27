@@ -47,7 +47,7 @@ function main-run ()
             "st")
                 /home/hamish/src/useful-scripts/generic/em ~/src/foss/st/config.h ;;
             "xinit")
-                /home/hamish/src/useful-scripts/generic/em ~/.xinitrc ;;
+                /home/hamish/src/useful-scripts/generic/em ~/.xsessionrc ;;
         esac
     }
 

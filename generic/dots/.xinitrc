@@ -52,5 +52,7 @@ xset r rate 250 50
 # start the emacs server. disown so that exiting x session doesn't kill emacs
 emacs --daemon &!
 
-# this is the last thing we do!
-#exec i3
+# set a few nice touchpad settings
+xinput set-prop "DELL09E2:00 04F3:30CB Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "DELL09E2:00 04F3:30CB Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "DELL09E2:00 04F3:30CB Touchpad" "libinput Middle Emulation Enabled" 1
