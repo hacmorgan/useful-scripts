@@ -78,7 +78,7 @@
             (visible yes))))
 (GimpToolGroup "tool group"
     (visible yes)
-    (active-tool "gimp-warp-tool")
+    (active-tool "gimp-cage-tool")
     (children
         (GimpToolInfo "gimp-warp-tool"
             (icon-name "gimp-tool-warp")
@@ -133,7 +133,7 @@
             (visible yes))))
 (GimpToolGroup "tool group"
     (visible yes)
-    (active-tool "gimp-smudge-tool")
+    (active-tool "gimp-dodge-burn-tool")
     (children
         (GimpToolInfo "gimp-smudge-tool"
             (icon-name "gimp-tool-smudge")
