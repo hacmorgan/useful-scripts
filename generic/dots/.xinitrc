@@ -38,10 +38,6 @@ compton &!
 # Set numlock to be on 
 numlockx &
 
-# display arrangement
-xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal
-
-
 # set backgrounds
 feh --bg-center ~/src/useful-scripts/arch-desktop/eboy_ny.png \
     --bg-center ~/src/useful-scripts/arch-desktop/eboy_tok.png
@@ -51,6 +47,9 @@ xset r rate 250 50
 
 # start the emacs server. disown so that exiting x session doesn't kill emacs
 emacs --daemon &!
+
+# display arrangement
+xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal
 
 # set a few nice touchpad settings
 xinput set-prop "DELL09E2:00 04F3:30CB Touchpad" "libinput Tapping Enabled" 1
