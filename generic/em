@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/zsh
 
 # A simple script to open a given file in emacs,
 # and detatch the process from the parent terminal 
