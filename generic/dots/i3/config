@@ -11,7 +11,7 @@
 
 set $mod Mod1
 
-set $TERMINAL termite
+set $TERMINAL sakura
 
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -185,7 +185,8 @@ bindsym $mod+Ctrl+Up resize grow height 5px
 bar {
     font pango:Fantasque Sans Mono, FontAwesome 10.5
     position top
-    status_command /usr/bin/i3status-rs /home/hamish/.config/i3/status.toml
+    # status_command /usr/bin/i3status-rs /home/hamish/.config/i3/status.toml
+    status_command i3status
     colors {
         separator #666666
         background #222222

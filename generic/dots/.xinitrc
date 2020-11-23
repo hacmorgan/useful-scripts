@@ -42,7 +42,7 @@ feh --bg-center ~/src/useful-scripts/x360/eboy_tok.png
 xset r rate 250 50
 
 # start the emacs server. disown so that exiting x session doesn't kill emacs
-emacs --daemon &!
+#emacs --daemon &!
 
 # this is the last thing we do!
 exec i3
