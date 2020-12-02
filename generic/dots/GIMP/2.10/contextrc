@@ -1,8 +1,9 @@
 # GIMP user context
 
-(tool "gimp-move-tool")
+(tool "gimp-levels-tool")
 (paint-info "gimp-paintbrush")
-(brush "2. Hardness 050")
+(foreground (color-rgb 0.97283477149248976 0.42953020134228193 1))
+(brush "1. Pixel")
 (dynamics "Dynamics Off")
 (mybrush "100% Opaque")
 (pattern "Pine")

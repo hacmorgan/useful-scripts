@@ -11,6 +11,7 @@
 (monitor-yresolution 82)
 (toolbox-groups no)
 (user-manual-online yes)
+(layer-new-name "annotations")
 (fill-options
     (style solid)
     (antialias yes)
