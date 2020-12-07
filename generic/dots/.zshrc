@@ -121,7 +121,6 @@ alias mnt_tank='abyss-mount-share hmo rhino-tank /mnt/tank'
 #################
 #    EXPORTS    #
 #################
-path+=('/home/hamish/.local/bin')
 path+=('/home/hamish/src/useful-scripts/generic')
 path+=('/home/hamish/src/useful-scripts/work-laptop')
 export PATH
