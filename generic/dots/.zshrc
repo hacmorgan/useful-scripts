@@ -134,3 +134,6 @@ export ALTERNATE_EDITOR=""
 
 # Fix colours in tmux
 export TERM=xterm-256color
+
+# linux from scratch
+export LFS=/mnt/lfs
