@@ -224,6 +224,7 @@ for_window [class="rqt_gui"] floating enable
 
 # Make gnuplot float by default
 for_window [class="gnuplot_qt"] floating enable
+for_window [class="0"] floating enable
 
 ###############
 # KEYBINDINGS #
