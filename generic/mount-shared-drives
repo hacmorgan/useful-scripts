@@ -1,4 +1,4 @@
 #!/bin/bash
-sudo sshfs hmo@rhino.local:/mnt/pond /mnt/pond -o allow_other
-sudo sshfs hmo@rhino.local:/mnt/tank /mnt/tank -o allow_other
-sudo sshfs hmo@rhino.local:/mnt/highspeed /mnt/highspeed -o allow_other
+sudo sshfs hmo@10.137.4.2:/mnt/pond /mnt/pond -o allow_other
+sudo sshfs hmo@10.137.4.2:/mnt/tank /mnt/tank -o allow_other
+sudo sshfs hmo@10.137.4.2:/mnt/highspeed /mnt/highspeed -o allow_other

@@ -39,7 +39,7 @@ picom &!
 numlockx &
 
 # display arrangement
-# xrandr --output HDMI-0 --primary --right-of DP-2
+xrandr --output HDMI-1 --primary --right-of DP-2
 
 # set backgrounds
 feh --bg-center ~/src/useful-scripts/arch-desktop/eboy_ny.png \
