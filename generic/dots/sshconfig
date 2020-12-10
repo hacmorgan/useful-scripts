@@ -34,6 +34,10 @@ Host rgb
     User hamish
     Hostname 10.0.0.67
 
+Host enzo
+    User hamish
+    Hostname 10.0.0.67
+
 Host rgb_remote
     User hamish
     Hostname thinkingaboudis.zapto.org

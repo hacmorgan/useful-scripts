@@ -223,6 +223,7 @@ bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
 # Make gnuplot float by default
 for_window [class="gnuplot_qt"] floating enable
+for_window [class="0"] floating enable
 
 ###############
 # KEYBINDINGS #
