@@ -17,7 +17,7 @@ function main-run ()
         local selected_option="$( get-choice "$options" )"
         case "$selected_option" in
             "shut down")
-                sudo shutdown -P now ;;
+                sudo poweroff ;;
             "reboot")
                 sudo reboot ;;
         esac
